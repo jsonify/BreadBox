@@ -14,9 +14,10 @@ struct Home: View {
     @FetchRequest(fetchRequest: Recipe.allRecipesFetchRequest()) var recipes: FetchedResults<Recipe>
     //
     @State private var showingAddScreen = false
+    @State private var showingSettingsScreen = false
     @State private var showRecipeView = false
     @State private var recipeNumber = 0
-//
+    //
     
     var body: some View {
         NavigationView {
@@ -31,7 +32,7 @@ struct Home: View {
                         Spacer()
                         
                         Button(action: {
-                            
+                            self.showingAddScreen.toggle()
                         }) {
                             Image("icon-filter")
                                 .foregroundColor(.red)
@@ -41,30 +42,43 @@ struct Home: View {
                     .padding(.top, 60)
                     
                     ScrollView {
-//                                            ForEach(0..<5) { number in
                         ForEach(self.recipes, id: \.self) { recipe in
                             NavigationLink(destination: RecipeView(recipe: recipe)) {
                                 RecipeViewCell(recipe: recipe)
                             }
-//                            Button(action: {
-//                                self.showRecipeView.toggle()
-//                                self.recipeNumber = number
-//                            }) {
-//                                RecipeViewCell(number: number)
-//                            }
-//                            .foregroundColor(.black)
-//                            .padding(.top)
+                            
                         }
                     }
                     
                     Spacer()
+                    HStack {
+                        Image("icon-gear")
+                            .onTapGesture {
+                                self.showingSettingsScreen.toggle()
+                        }
+                        .sheet(isPresented: $showingSettingsScreen) {
+                        SettingsView()
+                        }
+                        
+                        Spacer()
+                        Image("icon-plus")
+                            .onTapGesture {
+                                self.showingAddScreen.toggle()
+                        }
+                        .sheet(isPresented: $showingAddScreen) {
+                            AddRecipeView().environment(\.managedObjectContext, self.moc)
+                        }
+                        
+                        Spacer()
+                        Image("icon-graph")
+                    }
+                    .padding(.bottom, 40)
+                    .padding(.horizontal, 40)
                 }
-                
-//                RecipeView(showRecipeView: $showRecipeView, number: $recipeNumber)
-//                    .offset(y: self.showRecipeView ? 30 : 900)
             }
             .navigationBarHidden(true)
-            .navigationBarTitle(Text("Home"))
+            .navigationBarTitle(Text(""))
+                
             .edgesIgnoringSafeArea([.top, .bottom])
         }
         .statusBar(hidden: true)
@@ -78,37 +92,6 @@ struct Home_Previews: PreviewProvider {
     }
 }
 
-struct RecipeViewCell: View {
-    var recipe: Recipe
-//    var number: Int
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                Text("\(self.recipe.name ?? "")".uppercased())
-                    .bold()
-                    .kerning(3)
-                    .scaledFont(name: "Avenir", size: 18)
-                
-                Spacer()
-            }
-            
-            Text("May 19, 2020".uppercased())
-                .kerning(2)
-                .foregroundColor(.white)
-                .scaledFont(name: "Avenir", size: 12)
-        }
-        .padding(20)
-        .frame(maxWidth:.infinity)
-        .frame(maxHeight:300)
-        .background(Color.gray)
-        .cornerRadius(14)
-        
-        //        .onTapGesture {
-        //            //            self.show.toggle()
-        ////            print("button tapped")
-        //        }
-    }
-}
+
 
 let screen = UIScreen.main.bounds

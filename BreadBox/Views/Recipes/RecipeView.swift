@@ -10,6 +10,7 @@ import CoreData
 import SwiftUI
 
 struct RecipeView: View {
+    @Environment(\.presentationMode) var presentationMode
     @State private var show = false
     @State private var viewShowing = true
     var recipe: Recipe
@@ -58,9 +59,9 @@ struct RecipeView: View {
                                 .font(.system(size: 23))
                                 .foregroundColor(.white)
                                 .offset(y: -40)
-                            //                                    .onTapGesture {
-                            //                                        self.showRecipeView = false
-                            //                                }
+                                .onTapGesture {
+                                    self.presentationMode.wrappedValue.dismiss()
+                            }
                         }
                         
                         Text("May 19, 2020".uppercased())
@@ -80,16 +81,13 @@ struct RecipeView: View {
             .frame(maxHeight:300)
             .background(Color.gray)
             .cornerRadius(14)
-                
-            .onTapGesture {
-                self.show.toggle()
-                
-            }
         }
         .statusBar(hidden: true)
-        .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
-            //                .animation(.easeInOut)
+        .animation(.spring(response: 0.3, dampingFraction: 0.6, blendDuration: 0))
             .edgesIgnoringSafeArea(.all)
+        .navigationBarTitle("")
+            .navigationBarHidden(true)
+        
     }
     
     

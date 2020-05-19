@@ -3,13 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		4C0D48BE2473B8D700DA5289 /* AddRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D48BD2473B8D700DA5289 /* AddRecipeView.swift */; };
 		4C0D48C02473B90400DA5289 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D48BF2473B90400DA5289 /* CustomTextField.swift */; };
 		4C0D48C22473B91E00DA5289 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D48C12473B91E00DA5289 /* TextView.swift */; };
+		4C0D48C52473CC1100DA5289 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4C0D48C42473CC1100DA5289 /* IQKeyboardManagerSwift */; };
+		4C0D48C72473CF1C00DA5289 /* RecipeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D48C62473CF1C00DA5289 /* RecipeViewCell.swift */; };
+		4C0D48C92473D3AC00DA5289 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D48C82473D3AC00DA5289 /* SettingsView.swift */; };
 		4C74AF162473073E00479017 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C74AF152473073E00479017 /* AppDelegate.swift */; };
 		4C74AF182473073E00479017 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C74AF172473073E00479017 /* SceneDelegate.swift */; };
 		4C74AF1B2473073E00479017 /* BreadBox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C74AF192473073E00479017 /* BreadBox.xcdatamodeld */; };
@@ -28,6 +31,8 @@
 		4C0D48BD2473B8D700DA5289 /* AddRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeView.swift; sourceTree = "<group>"; };
 		4C0D48BF2473B90400DA5289 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		4C0D48C12473B91E00DA5289 /* TextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		4C0D48C62473CF1C00DA5289 /* RecipeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewCell.swift; sourceTree = "<group>"; };
+		4C0D48C82473D3AC00DA5289 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		4C74AF122473073E00479017 /* BreadBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreadBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C74AF152473073E00479017 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C74AF172473073E00479017 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C0D48C52473CC1100DA5289 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +127,7 @@
 			children = (
 				4C74AF3924738A2D00479017 /* Home */,
 				4C74AF3A24738A3C00479017 /* Recipes */,
+				4C0D48C82473D3AC00DA5289 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -138,6 +145,7 @@
 			children = (
 				4C74AF362473885000479017 /* RecipeView.swift */,
 				4C0D48BD2473B8D700DA5289 /* AddRecipeView.swift */,
+				4C0D48C62473CF1C00DA5289 /* RecipeViewCell.swift */,
 			);
 			path = Recipes;
 			sourceTree = "<group>";
@@ -158,6 +166,9 @@
 			dependencies = (
 			);
 			name = BreadBox;
+			packageProductDependencies = (
+				4C0D48C42473CC1100DA5289 /* IQKeyboardManagerSwift */,
+			);
 			productName = BreadBox;
 			productReference = 4C74AF122473073E00479017 /* BreadBox.app */;
 			productType = "com.apple.product-type.application";
@@ -186,6 +197,9 @@
 				Base,
 			);
 			mainGroup = 4C74AF092473073E00479017;
+			packageReferences = (
+				4C0D48C32473CC1100DA5289 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+			);
 			productRefGroup = 4C74AF132473073E00479017 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -220,11 +234,13 @@
 				4C74AF1B2473073E00479017 /* BreadBox.xcdatamodeld in Sources */,
 				4C0D48BE2473B8D700DA5289 /* AddRecipeView.swift in Sources */,
 				4C74AF162473073E00479017 /* AppDelegate.swift in Sources */,
+				4C0D48C92473D3AC00DA5289 /* SettingsView.swift in Sources */,
 				4C74AF2F2473082700479017 /* Recipe+CoreDataProperties.swift in Sources */,
 				4C74AF1D2473073E00479017 /* ContentView.swift in Sources */,
 				4C0D48C22473B91E00DA5289 /* TextView.swift in Sources */,
 				4C74AF35247309FD00479017 /* Home.swift in Sources */,
 				4C74AF182473073E00479017 /* SceneDelegate.swift in Sources */,
+				4C0D48C72473CF1C00DA5289 /* RecipeViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,7 +388,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jasonrueckert.com.BreadBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -392,7 +408,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jasonrueckert.com.BreadBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -418,6 +434,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4C0D48C32473CC1100DA5289 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4C0D48C42473CC1100DA5289 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4C0D48C32473CC1100DA5289 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		4C74AF192473073E00479017 /* BreadBox.xcdatamodeld */ = {
