@@ -9,7 +9,10 @@
 import SwiftUI
 
 struct RecipeView: View {
+    @Binding var showRecipeView: Bool
+    @Binding var number: Int
     @State private var show = false
+    @State private var viewShowing = true
 //        var recipe: Recipe
         
         var body: some View {
@@ -35,17 +38,17 @@ struct RecipeView: View {
                     .scaledFont(name: "Avenir", size: 12)
                 }
                 .padding(30)
-//                .frame(maxWidth: show ? .infinity : screen.width - 30, maxHeight: show ? .infinity : 70, alignment: .top)
-                .offset(y: show ? 300 : 70)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                .offset(y: 300)
                 .background(Color.white)
                 .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
-                .opacity(show ? 1 : 0)
+                .opacity(1)
                 
                 VStack {
                     HStack {
                         VStack(alignment: .leading) {
                             HStack {
-                                Text("sourdough".uppercased())
+                                Text("sourdough #\(self.number)".uppercased())
                                     .bold()
                                     .kerning(3)
                                     .scaledFont(name: "Avenir", size: 18)
@@ -56,6 +59,10 @@ struct RecipeView: View {
                                     .font(.system(size: 23))
                                     .foregroundColor(.white)
                                     .offset(y: -20)
+                                    .onTapGesture {
+                                        print("something tapped")
+                                        self.showRecipeView = false
+                                }
                             }
                                 
                             Text("May 19, 2020".uppercased())
@@ -71,23 +78,27 @@ struct RecipeView: View {
                     
                 }
                 .padding(20)
-//                .frame(maxWidth: show ? .infinity : screen.width - 30)
-//                .frame(maxHeight: show ? 300 : 70)
+                .frame(maxWidth:.infinity)
+                .frame(maxHeight:300)
                 .background(Color.gray)
                 .cornerRadius(14)
                 
                 .onTapGesture {
                     self.show.toggle()
+                    
                 }
             }
-    //        .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
-                .animation(.easeInOut)
+                .statusBar(hidden: true)
+            .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
+//                .animation(.easeInOut)
             .edgesIgnoringSafeArea(.all)
         }
+
+
 }
 
 struct RecipeView_Previews: PreviewProvider {
     static var previews: some View {
-        RecipeView()
+        RecipeView(showRecipeView: .constant(false), number: .constant(1))
     }
 }

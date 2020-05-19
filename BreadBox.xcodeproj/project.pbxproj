@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C0D48BE2473B8D700DA5289 /* AddRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D48BD2473B8D700DA5289 /* AddRecipeView.swift */; };
+		4C0D48C02473B90400DA5289 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D48BF2473B90400DA5289 /* CustomTextField.swift */; };
+		4C0D48C22473B91E00DA5289 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D48C12473B91E00DA5289 /* TextView.swift */; };
 		4C74AF162473073E00479017 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C74AF152473073E00479017 /* AppDelegate.swift */; };
 		4C74AF182473073E00479017 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C74AF172473073E00479017 /* SceneDelegate.swift */; };
 		4C74AF1B2473073E00479017 /* BreadBox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C74AF192473073E00479017 /* BreadBox.xcdatamodeld */; };
@@ -22,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C0D48BD2473B8D700DA5289 /* AddRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeView.swift; sourceTree = "<group>"; };
+		4C0D48BF2473B90400DA5289 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		4C0D48C12473B91E00DA5289 /* TextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		4C74AF122473073E00479017 /* BreadBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreadBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C74AF152473073E00479017 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C74AF172473073E00479017 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,7 +109,9 @@
 		4C74AF312473096C00479017 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				4C0D48BF2473B90400DA5289 /* CustomTextField.swift */,
 				4C74AF322473097C00479017 /* CustomFont.swift */,
+				4C0D48C12473B91E00DA5289 /* TextView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -129,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				4C74AF362473885000479017 /* RecipeView.swift */,
+				4C0D48BD2473B8D700DA5289 /* AddRecipeView.swift */,
 			);
 			path = Recipes;
 			sourceTree = "<group>";
@@ -205,12 +214,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C74AF372473885000479017 /* RecipeView.swift in Sources */,
+				4C0D48C02473B90400DA5289 /* CustomTextField.swift in Sources */,
 				4C74AF332473097C00479017 /* CustomFont.swift in Sources */,
 				4C74AF2E2473082700479017 /* Recipe+CoreDataClass.swift in Sources */,
 				4C74AF1B2473073E00479017 /* BreadBox.xcdatamodeld in Sources */,
+				4C0D48BE2473B8D700DA5289 /* AddRecipeView.swift in Sources */,
 				4C74AF162473073E00479017 /* AppDelegate.swift in Sources */,
 				4C74AF2F2473082700479017 /* Recipe+CoreDataProperties.swift in Sources */,
 				4C74AF1D2473073E00479017 /* ContentView.swift in Sources */,
+				4C0D48C22473B91E00DA5289 /* TextView.swift in Sources */,
 				4C74AF35247309FD00479017 /* Home.swift in Sources */,
 				4C74AF182473073E00479017 /* SceneDelegate.swift in Sources */,
 			);
