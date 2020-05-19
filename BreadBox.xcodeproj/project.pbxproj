@@ -14,6 +14,11 @@
 		4C74AF1F2473074200479017 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C74AF1E2473074200479017 /* Assets.xcassets */; };
 		4C74AF222473074200479017 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C74AF212473074200479017 /* Preview Assets.xcassets */; };
 		4C74AF252473074200479017 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C74AF232473074200479017 /* LaunchScreen.storyboard */; };
+		4C74AF2E2473082700479017 /* Recipe+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C74AF2C2473082700479017 /* Recipe+CoreDataClass.swift */; };
+		4C74AF2F2473082700479017 /* Recipe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C74AF2D2473082700479017 /* Recipe+CoreDataProperties.swift */; };
+		4C74AF332473097C00479017 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C74AF322473097C00479017 /* CustomFont.swift */; };
+		4C74AF35247309FD00479017 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C74AF34247309FD00479017 /* Home.swift */; };
+		4C74AF372473885000479017 /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C74AF362473885000479017 /* RecipeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,11 @@
 		4C74AF212473074200479017 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4C74AF242473074200479017 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C74AF262473074200479017 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C74AF2C2473082700479017 /* Recipe+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4C74AF2D2473082700479017 /* Recipe+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4C74AF322473097C00479017 /* CustomFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
+		4C74AF34247309FD00479017 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		4C74AF362473885000479017 /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +68,15 @@
 		4C74AF142473073E00479017 /* BreadBox */ = {
 			isa = PBXGroup;
 			children = (
+				4C74AF3824738A1F00479017 /* Views */,
+				4C74AF312473096C00479017 /* Helpers */,
+				4C74AF302473091C00479017 /* CoreData */,
 				4C74AF152473073E00479017 /* AppDelegate.swift */,
 				4C74AF172473073E00479017 /* SceneDelegate.swift */,
 				4C74AF1C2473073E00479017 /* ContentView.swift */,
 				4C74AF1E2473074200479017 /* Assets.xcassets */,
 				4C74AF232473074200479017 /* LaunchScreen.storyboard */,
 				4C74AF262473074200479017 /* Info.plist */,
-				4C74AF192473073E00479017 /* BreadBox.xcdatamodeld */,
 				4C74AF202473074200479017 /* Preview Content */,
 			);
 			path = BreadBox;
@@ -76,6 +88,49 @@
 				4C74AF212473074200479017 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4C74AF302473091C00479017 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				4C74AF2C2473082700479017 /* Recipe+CoreDataClass.swift */,
+				4C74AF2D2473082700479017 /* Recipe+CoreDataProperties.swift */,
+				4C74AF192473073E00479017 /* BreadBox.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		4C74AF312473096C00479017 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4C74AF322473097C00479017 /* CustomFont.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		4C74AF3824738A1F00479017 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4C74AF3924738A2D00479017 /* Home */,
+				4C74AF3A24738A3C00479017 /* Recipes */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4C74AF3924738A2D00479017 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				4C74AF34247309FD00479017 /* Home.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		4C74AF3A24738A3C00479017 /* Recipes */ = {
+			isa = PBXGroup;
+			children = (
+				4C74AF362473885000479017 /* RecipeView.swift */,
+			);
+			path = Recipes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,9 +204,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C74AF372473885000479017 /* RecipeView.swift in Sources */,
+				4C74AF332473097C00479017 /* CustomFont.swift in Sources */,
+				4C74AF2E2473082700479017 /* Recipe+CoreDataClass.swift in Sources */,
 				4C74AF1B2473073E00479017 /* BreadBox.xcdatamodeld in Sources */,
 				4C74AF162473073E00479017 /* AppDelegate.swift in Sources */,
+				4C74AF2F2473082700479017 /* Recipe+CoreDataProperties.swift in Sources */,
 				4C74AF1D2473073E00479017 /* ContentView.swift in Sources */,
+				4C74AF35247309FD00479017 /* Home.swift in Sources */,
 				4C74AF182473073E00479017 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
