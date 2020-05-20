@@ -39,7 +39,7 @@ struct Home: View {
                                 .foregroundColor(.red)
                         }
                     }
-                    .padding(.horizontal)
+                    .padding(.horizontal, 30)
                     .padding(.top, 60)
                     
                     List {

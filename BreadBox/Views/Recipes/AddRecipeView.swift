@@ -45,7 +45,7 @@ struct AddRecipeView: View {
                          VStack {
                              HStack {
                                 CustomTextField(placeHolder: "Recipe Name".uppercased(), value: $recipeName, lineColor: .secondary, width: 1)
-                                .scaledFont(name: "Avenir", size: 16)
+                                .scaledFont(name: "Avenir", size: 12)
                                  
                                 Text("Hydration: \(String(format: "%.0f", self.hydration ))%".uppercased())
                                     .scaledFont(name: "Avenir", size: 12)
@@ -55,22 +55,22 @@ struct AddRecipeView: View {
                              
                              HStack {
                                  CustomTextField(placeHolder: "Flour (g)".uppercased(), value: $flourAmount, lineColor: .secondary, width: 1)
-                                .scaledFont(name: "Avenir", size: 16)
+                                .scaledFont(name: "Avenir", size: 12)
                                  
                                  CustomTextField(placeHolder: "Water (g)".uppercased(), value: $waterAmount, lineColor: .secondary, width: 1)
-                                .scaledFont(name: "Avenir", size: 16)
+                                .scaledFont(name: "Avenir", size: 12)
                              }
                              .keyboardType(.decimalPad)
                              
                              HStack {
                                  CustomTextField(placeHolder: "Starter (g)".uppercased(), value: $starterAmount, lineColor: .secondary, width: 1)
-                                .scaledFont(name: "Avenir", size: 16)
+                                .scaledFont(name: "Avenir", size: 12)
                                  
                                  CustomTextField(placeHolder: "Salt (g)".uppercased(), value: $saltAmount, lineColor: .secondary, width: 1)
-                                .scaledFont(name: "Avenir", size: 16)
+                                .scaledFont(name: "Avenir", size: 12)
                                  
                                  CustomTextField(placeHolder: "Yeast (g)".uppercased(), value: $yeastAmount, lineColor: .secondary, width: 1)
-                                .scaledFont(name: "Avenir", size: 16)
+                                .scaledFont(name: "Avenir", size: 12)
                              }
                              .keyboardType(.decimalPad)
                          }
@@ -80,8 +80,14 @@ struct AddRecipeView: View {
                          VStack {
                             Text("Instructions".uppercased())
                                  .foregroundColor(.secondary)
+                            .kerning(4)
                             .scaledFont(name: "Avenir", size: 16)
+                            
                              TextView(text: $textBox)
+                            .cornerRadius(5)
+                            .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color.gray, lineWidth: 1))
                          }
                          
                          Button(action: {
@@ -111,6 +117,7 @@ struct AddRecipeView: View {
                  }
                  .padding(.top, 30.0)
              }
+             .statusBar(hidden: true)
      }
      
         fileprivate func ResetFields() {

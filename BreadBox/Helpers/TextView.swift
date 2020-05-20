@@ -20,13 +20,13 @@ struct TextView: UIViewRepresentable {
         let myTextView = UITextView()
         myTextView.delegate = context.coordinator
 
-        myTextView.font = UIFont(name: "HelveticaNeue", size: 15)
+        myTextView.font = UIFont(name: "Avenir", size: 15)
         myTextView.isScrollEnabled = true
         myTextView.isEditable = true
         myTextView.isUserInteractionEnabled = true
-        myTextView.backgroundColor = UIColor(white: 0.0, alpha: 0.05)
+        myTextView.backgroundColor = UIColor(named: "textViewBG")
         myTextView.text = "Placeholder"
-        myTextView.textColor = UIColor.black
+        myTextView.textColor = UIColor(named: "textColor")
 
         return myTextView
     }
@@ -48,7 +48,7 @@ struct TextView: UIViewRepresentable {
         }
 
         func textViewDidChange(_ textView: UITextView) {
-            print("text now: \(String(describing: textView.text!))")
+//            print("text now: \(String(describing: textView.text!))")
             self.parent.text = textView.text
         }
         
