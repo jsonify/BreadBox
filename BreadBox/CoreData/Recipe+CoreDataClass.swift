@@ -23,4 +23,9 @@ public class Recipe: NSManagedObject, Identifiable {
     @NSManaged public var instructions: String?
     @NSManaged public var notes: String?
     @NSManaged public var dateString: String?
+    
+    @NSManaged public var starterName: String?
+    @NSManaged public var starterFlourAmount: String?
+    @NSManaged public var starterSeedAmount: String?
+    @NSManaged public var starterWaterAmount: String?
 }

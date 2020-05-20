@@ -9,6 +9,20 @@
 import CoreData
 import SwiftUI
 
+struct ImageOverlay: View {
+    var body: some View {
+        ZStack {
+            Text("Sourdough")
+                .font(.callout)
+                .padding(6)
+                .foregroundColor(.white)
+        }.background(Color.black)
+        .opacity(0.8)
+        .cornerRadius(10.0)
+        .padding(6)
+    }
+}
+
 struct RecipeView: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.presentationMode) var presentationMode
@@ -20,7 +34,7 @@ struct RecipeView: View {
     var body: some View {
         ZStack(alignment: .top) {
             VStack(alignment: .leading, spacing: 30.0) {
-                Text("Formula".uppercased())
+                Text("\(self.recipe.name ?? "")".uppercased())
                     .foregroundColor(.primary)
                     .font(.title).bold()
                     .kerning(3)
@@ -50,39 +64,40 @@ struct RecipeView: View {
             .opacity(1)
             
             VStack {
-                HStack {
-                    VStack(alignment: .leading) {
-                        HStack {
-                            Text("\(self.recipe.name ?? "")".uppercased())
-                                .foregroundColor(.black)
-                                .bold()
-                                .kerning(3)
-                                .scaledFont(name: "Avenir", size: 18)
+                    
+                GeometryReader { geometry in
+                    HStack {
+                            ZStack(alignment: .leading) {
+                                Image("dough3")
+                                .frame(maxWidth: geometry.size.width)
+                                
+                                HStack {
+                                    Text("".uppercased())
+                                        .fontWeight(.black)
+                                        .foregroundColor(.black)
+                                        .bold()
+                                        .kerning(3)
+                                        .scaledFont(name: "Avenir", size: 18)
+                                    
+                                    Spacer()
+                                    
+                                    Image(systemName: "xmark.circle.fill")
+                                        .font(.system(size: 23))
+                                        .foregroundColor(.white)
+                                        .offset(y: -40)
+                                        .onTapGesture {
+                                            self.presentationMode.wrappedValue.dismiss()
+                                    }
+                                }
+                                .offset(y: -100)
+
+                                Spacer()
+                            }
+                            .padding(.top, 60)
                             
                             Spacer()
-                            
-                            Image(systemName: "xmark.circle.fill")
-                                .font(.system(size: 23))
-                                .foregroundColor(.white)
-                                .offset(y: -40)
-                                .onTapGesture {
-                                    self.presentationMode.wrappedValue.dismiss()
-                            }
-                        }
-                        
-                        Text("May 19, 2020".uppercased())
-                            .kerning(2)
-                            .foregroundColor(.white)
-                            .scaledFont(name: "Avenir", size: 12)
-                        Spacer()
                     }
-                    .padding(.top, 60)
-                    
-                    Spacer()
-                    
-                    
                 }
-                
             }
             .padding(20)
             .frame(maxWidth:.infinity)

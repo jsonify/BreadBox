@@ -8,10 +8,14 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="saltAmount" optional="YES" attributeType="String"/>
         <attribute name="starterAmount" optional="YES" attributeType="String"/>
+        <attribute name="starterFlourAmount" optional="YES" attributeType="String"/>
+        <attribute name="starterName" optional="YES" attributeType="String"/>
+        <attribute name="starterSeedAmount" optional="YES" attributeType="String"/>
+        <attribute name="starterWaterAmount" optional="YES" attributeType="String"/>
         <attribute name="waterAmount" optional="YES" attributeType="String"/>
         <attribute name="yeastAmount" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Recipe" positionX="-54" positionY="-9" width="128" height="178"/>
+        <element name="Recipe" positionX="-54" positionY="-9" width="128" height="238"/>
     </elements>
 </model>
