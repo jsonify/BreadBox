@@ -10,37 +10,42 @@ import CoreData
 import SwiftUI
 
 struct RecipeView: View {
+    @Environment(\.managedObjectContext) var moc
     @Environment(\.presentationMode) var presentationMode
     @State private var show = false
     @State private var viewShowing = true
+    @State private var showInstructionsView = false
     var recipe: Recipe
     
     var body: some View {
         ZStack(alignment: .top) {
             VStack(alignment: .leading, spacing: 30.0) {
                 Text("Formula".uppercased())
+                    .foregroundColor(.primary)
                     .font(.title).bold()
                     .kerning(3)
                     .bold()
                     .scaledFont(name: "Avenir", size: 28)
                 
-                Text("Flour: \(self.recipe.flourAmount ?? "")g".uppercased())
+                Text("Flour: \(self.recipe.flourAmount ?? "0")g".uppercased())
+                    .foregroundColor(.primary)
                     .kerning(2)
                     .scaledFont(name: "Avenir", size: 12)
-                Text("Water: \(self.recipe.waterAmount ?? "")g".uppercased())
+                Text("Water: \(self.recipe.waterAmount ?? "0")g".uppercased())
+                    .foregroundColor(.primary)
                     .kerning(2)
                     .scaledFont(name: "Avenir", size: 12)
-                Text("Starter: \(self.recipe.starterAmount ?? "")g".uppercased())
+                Text("Starter: \(self.recipe.starterAmount ?? "0")g".uppercased())
                     .kerning(2)
                     .scaledFont(name: "Avenir", size: 12)
-                Text("Salt: \(self.recipe.saltAmount ?? "")g".uppercased())
+                Text("Salt: \(self.recipe.saltAmount ?? "0")g".uppercased())
                     .kerning(2)
                     .scaledFont(name: "Avenir", size: 12)
             }
             .padding(30)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .offset(y: 300)
-            .background(Color.white)
+//            .background(Color.white)
             .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
             .opacity(1)
             
@@ -49,6 +54,7 @@ struct RecipeView: View {
                     VStack(alignment: .leading) {
                         HStack {
                             Text("\(self.recipe.name ?? "")".uppercased())
+                                .foregroundColor(.black)
                                 .bold()
                                 .kerning(3)
                                 .scaledFont(name: "Avenir", size: 18)
@@ -73,6 +79,8 @@ struct RecipeView: View {
                     .padding(.top, 60)
                     
                     Spacer()
+                    
+                    
                 }
                 
             }
@@ -81,12 +89,23 @@ struct RecipeView: View {
             .frame(maxHeight:300)
             .background(Color.gray)
             .cornerRadius(14)
+             
+            HStack {
+                Image("icon-cookbook")
+                    .onTapGesture {
+                        self.showInstructionsView.toggle()
+                }
+            }
+            .offset(y: screen.height - 160)
+            .sheet(isPresented: $showInstructionsView) {
+                InstructionsView(recipe: self.recipe).environment(\.managedObjectContext, self.moc)
+            }
         }
         .statusBar(hidden: true)
         .animation(.spring(response: 0.3, dampingFraction: 0.6, blendDuration: 0))
-            .edgesIgnoringSafeArea(.all)
+        .edgesIgnoringSafeArea(.all)
         .navigationBarTitle("")
-            .navigationBarHidden(true)
+        .navigationBarHidden(true)
         
     }
     

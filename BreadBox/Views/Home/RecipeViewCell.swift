@@ -24,10 +24,10 @@ struct RecipeViewCell: View {
                 Spacer()
             }
             
-            Text("May 19, 2020".uppercased())
+            Text("\(self.recipe.dateString ?? "Do date found")".uppercased())
                 .kerning(2)
                 .foregroundColor(.white)
-                .scaledFont(name: "Avenir", size: 12)
+                .scaledFont(name: "Avenir", size: 10)
         }
         .padding(20)
         .frame(maxWidth:.infinity)

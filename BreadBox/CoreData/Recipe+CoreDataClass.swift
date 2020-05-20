@@ -22,4 +22,5 @@ public class Recipe: NSManagedObject, Identifiable {
     @NSManaged public var yeastAmount: String?
     @NSManaged public var instructions: String?
     @NSManaged public var notes: String?
+    @NSManaged public var dateString: String?
 }

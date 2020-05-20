@@ -39,40 +39,48 @@ struct AddRecipeView: View {
      
      var body: some View {
              ZStack {
-                 Color(#colorLiteral(red: 1, green: 0.9740341306, blue: 0.7952792645, alpha: 1))
-                     .edgesIgnoringSafeArea(.all)
+                 
                  VStack {
                      VStack {
                          VStack {
                              HStack {
-                                 CustomTextField(placeHolder: "Recipe Name", value: $recipeName, lineColor: Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)), width: 1)
+                                CustomTextField(placeHolder: "Recipe Name".uppercased(), value: $recipeName, lineColor: .secondary, width: 1)
+                                .scaledFont(name: "Avenir", size: 16)
                                  
-                                 Text("Hydration: \(String(format: "%.0f", self.hydration ))%")
-                                     .foregroundColor((Int(self.flourAmount) ?? 0 > 1 && Int(self.waterAmount) ?? 0 > 1) ? .blue : Color(#colorLiteral(red: 1, green: 0.9740341306, blue: 0.7952792645, alpha: 1)))
+                                Text("Hydration: \(String(format: "%.0f", self.hydration ))%".uppercased())
+                                    .scaledFont(name: "Avenir", size: 12)
+                                     .foregroundColor((Int(self.flourAmount) ?? 0 > 1 && Int(self.waterAmount) ?? 0 > 1) ? .blue : .secondary)
                                      .padding(.leading, 35)
                              }
                              
                              HStack {
-                                 CustomTextField(placeHolder: "Flour (g)", value: $flourAmount, lineColor: Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)), width: 1)
+                                 CustomTextField(placeHolder: "Flour (g)".uppercased(), value: $flourAmount, lineColor: .secondary, width: 1)
+                                .scaledFont(name: "Avenir", size: 16)
                                  
-                                 CustomTextField(placeHolder: "Water (g)", value: $waterAmount, lineColor: Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)), width: 1)
+                                 CustomTextField(placeHolder: "Water (g)".uppercased(), value: $waterAmount, lineColor: .secondary, width: 1)
+                                .scaledFont(name: "Avenir", size: 16)
                              }
                              .keyboardType(.decimalPad)
                              
                              HStack {
-                                 CustomTextField(placeHolder: "Starter (g)", value: $starterAmount, lineColor: Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)), width: 1)
+                                 CustomTextField(placeHolder: "Starter (g)".uppercased(), value: $starterAmount, lineColor: .secondary, width: 1)
+                                .scaledFont(name: "Avenir", size: 16)
                                  
-                                 CustomTextField(placeHolder: "Salt (g)", value: $saltAmount, lineColor: Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)), width: 1)
+                                 CustomTextField(placeHolder: "Salt (g)".uppercased(), value: $saltAmount, lineColor: .secondary, width: 1)
+                                .scaledFont(name: "Avenir", size: 16)
                                  
-                                 CustomTextField(placeHolder: "Yeast (g)", value: $yeastAmount, lineColor: Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)), width: 1)
+                                 CustomTextField(placeHolder: "Yeast (g)".uppercased(), value: $yeastAmount, lineColor: .secondary, width: 1)
+                                .scaledFont(name: "Avenir", size: 16)
                              }
                              .keyboardType(.decimalPad)
                          }
                          .padding(.vertical, 20.0)
                          
+                        Spacer()
                          VStack {
-                             Text("Instructions")
-                                 .foregroundColor(Color(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)))
+                            Text("Instructions".uppercased())
+                                 .foregroundColor(.secondary)
+                            .scaledFont(name: "Avenir", size: 16)
                              TextView(text: $textBox)
                          }
                          
@@ -85,12 +93,13 @@ struct AddRecipeView: View {
                                  Image(systemName: "plus")
                                      .foregroundColor(.white)
                                      .imageScale(.small)
-                                 Text("Add Recipe")
+                                 Text("Add Recipe".uppercased())
                                      .foregroundColor(.white)
+                                .scaledFont(name: "Avenir", size: 12)
                              }
                              .frame(maxWidth: .infinity)
                              .frame(height: 30)
-                             .background(self.recipeName.isEmpty ? Color.gray : Color.green)
+                             .background(self.recipeName.isEmpty ? Color.gray : Color.red)
                              .cornerRadius(5)
                          }
                          .disabled(self.recipeName.isEmpty ? true : false)
@@ -115,6 +124,11 @@ struct AddRecipeView: View {
         }
      
          fileprivate func PopulateCoreData() {
+            let date = Date()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MMM d, yyyy"
+            let dateString = dateFormatter.string(from: date as Date)
+            
             let recipe = Recipe(context: self.moc)
             recipe.name = self.recipeName
             recipe.flourAmount = self.flourAmount
@@ -123,6 +137,7 @@ struct AddRecipeView: View {
             recipe.saltAmount = self.saltAmount
             recipe.yeastAmount = self.yeastAmount
              recipe.instructions = self.textBox
+            recipe.dateString = dateString
             self.hyd = self.hydration
             
             do {

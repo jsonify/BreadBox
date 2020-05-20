@@ -16,6 +16,7 @@ struct Home: View {
     @State private var showingAddScreen = false
     @State private var showingSettingsScreen = false
     @State private var showRecipeView = false
+    @State private var showingStarterFormulaView = false
     @State private var recipeNumber = 0
     //
     
@@ -32,7 +33,7 @@ struct Home: View {
                         Spacer()
                         
                         Button(action: {
-                            self.showingAddScreen.toggle()
+                            
                         }) {
                             Image("icon-filter")
                                 .foregroundColor(.red)
@@ -41,14 +42,16 @@ struct Home: View {
                     .padding(.horizontal)
                     .padding(.top, 60)
                     
-                    ScrollView {
+                    List {
                         ForEach(self.recipes, id: \.self) { recipe in
                             NavigationLink(destination: RecipeView(recipe: recipe)) {
                                 RecipeViewCell(recipe: recipe)
                             }
-                            
+                        
                         }
+                        .onDelete(perform: deleteRecipes)
                     }
+                    .onAppear { UITableView.appearance().separatorStyle = .none }
                     
                     Spacer()
                     HStack {
@@ -70,7 +73,13 @@ struct Home: View {
                         }
                         
                         Spacer()
-                        Image("icon-graph")
+                        Image("icon-test-tube")
+                                .onTapGesture {
+                                    self.showingStarterFormulaView.toggle()
+                            }
+                        .sheet(isPresented: $showingStarterFormulaView) {
+                            StarterFormulaView().environment(\.managedObjectContext, self.moc)
+                        }
                     }
                     .padding(.bottom, 40)
                     .padding(.horizontal, 40)
@@ -82,6 +91,19 @@ struct Home: View {
             .edgesIgnoringSafeArea([.top, .bottom])
         }
         .statusBar(hidden: true)
+    }
+    
+    func deleteRecipes(at offsets: IndexSet) {
+        for offset in offsets {
+            // find this book in our fetch request
+            let recipe = recipes[offset]
+
+            // delete it from the context
+            moc.delete(recipe)
+        }
+
+        // save the context
+        try? moc.save()
     }
 }
 
