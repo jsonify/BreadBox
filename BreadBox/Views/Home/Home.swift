@@ -25,7 +25,7 @@ struct Home: View {
             ZStack {
                 VStack {
                     HStack {
-                        Text("RECIPES")
+                        Text("Recipes".uppercased())
                             .kerning(6)
                             .bold()
                             .scaledFont(name: "Avenir", size: 28)
@@ -69,7 +69,7 @@ struct Home: View {
                                 self.showingAddScreen.toggle()
                         }
                         .sheet(isPresented: $showingAddScreen) {
-                            AddRecipeView().environment(\.managedObjectContext, self.moc)
+                            CreateView().environment(\.managedObjectContext, self.moc)
                         }
                         
                         Spacer()

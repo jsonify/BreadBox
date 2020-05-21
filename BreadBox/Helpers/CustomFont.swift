@@ -26,3 +26,9 @@ extension View {
         return self.modifier(ScaledFont(name: name, size: size))
     }
 }
+
+struct AvFont {
+    static let header = Font.custom("Avenir", size: 22)
+    static let title = Font.custom("Avenir", size: 12)
+    static let subtitle = Font.custom("Avenir", size: 10)
+}
