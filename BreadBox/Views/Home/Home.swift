@@ -56,6 +56,7 @@ struct Home: View {
                     Spacer()
                     HStack {
                         Image("icon-gear")
+                            .foregroundColor(Color("buttonGray"))
                             .onTapGesture {
                                 self.showingSettingsScreen.toggle()
                         }
@@ -65,6 +66,7 @@ struct Home: View {
                         
                         Spacer()
                         Image("icon-plus")
+                            .foregroundColor(Color("buttonGray"))
                             .onTapGesture {
                                 self.showingAddScreen.toggle()
                         }
@@ -74,6 +76,7 @@ struct Home: View {
                         
                         Spacer()
                         Image("icon-test-tube")
+                            .foregroundColor(Color("buttonGray"))
                                 .onTapGesture {
                                     self.showingStarterFormulaView.toggle()
                             }

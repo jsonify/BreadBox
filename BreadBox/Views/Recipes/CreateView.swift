@@ -56,7 +56,7 @@ struct CreateView: View {
                                 .font(AvFont.subtitle)
                                 .tracking(1)
                                 .frame(width: 60, height: 25)
-                                .background(Color(#colorLiteral(red: 0.7450980392, green: 0.7647058824, blue: 0.7764705882, alpha: 1)))
+                                .background(Color("buttonGray"))
                                 .foregroundColor(.white)
                                 .cornerRadius(6)
                         }
@@ -69,9 +69,10 @@ struct CreateView: View {
                                 .tracking(1)
                                 .font(AvFont.subtitle)
                                 .frame(width: 60, height: 25)
-                                .background(Color(#colorLiteral(red: 0.3176470588, green: 0.5882352941, blue: 0.8352941176, alpha: 1)))
+                                .background(self.recipeName.isEmpty ? Color("buttonGray") : Color(#colorLiteral(red: 0.3176470588, green: 0.5882352941, blue: 0.8352941176, alpha: 1)))
                                 .foregroundColor(.white)
                                 .cornerRadius(6)
+                            
                         }
                     }
                 }
@@ -111,15 +112,23 @@ struct CreateView: View {
             .offset(y: -40)
             HStack {
                 Spacer()
-                Image("icon-test-tube")
+                Image("icon-add-note")
+                    
+                .resizable()
+                .scaledToFit()
+                    .frame(width: 46)
                     .onTapGesture {
                         self.showInstructions.toggle()
+//                        self.populateCoreData()
                 }
                 .sheet(isPresented: self.$showInstructions) {
-                    AddInstructionsView()
+                    AddInstructionsView().environment(\.managedObjectContext, self.moc)
                 }
+                .foregroundColor(/*@START_MENU_TOKEN@*/Color("buttonGray")/*@END_MENU_TOKEN@*/)
+                .opacity(self.recipeName.isEmpty ? 0 : 1)
+                .disabled(self.recipeName.isEmpty ? true : false)
             }
-            .offset(y: screen.height - 450)
+            .offset(y: screen.height - 460)
             .padding(.trailing, 30)
         }
         
@@ -147,7 +156,7 @@ struct CreateView: View {
         recipe.starterAmount = self.starterAmount
         recipe.saltAmount = self.saltAmount
         recipe.yeastAmount = self.yeastAmount
-         recipe.instructions = self.textBox
+//         recipe.instructions = self.textBox
         recipe.dateString = dateString
         self.hyd = self.hydration
         
