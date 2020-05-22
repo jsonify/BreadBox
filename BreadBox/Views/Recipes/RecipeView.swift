@@ -34,25 +34,25 @@ struct RecipeView: View {
     var body: some View {
         ZStack(alignment: .top) {
             VStack(alignment: .leading, spacing: 30.0) {
-                Text("\(self.recipe.name ?? "")".uppercased())
+                Text("\(self.recipe.name)".uppercased())
                     .foregroundColor(.primary)
                     .font(.title).bold()
                     .kerning(3)
                     .bold()
                     .scaledFont(name: "Avenir", size: 28)
                 
-                Text("Flour: \(self.recipe.flourAmount ?? "0")g".uppercased())
+                Text("Flour: \(self.recipe.flourAmount)g".uppercased())
                     .foregroundColor(.primary)
                     .kerning(2)
                     .scaledFont(name: "Avenir", size: 12)
-                Text("Water: \(self.recipe.waterAmount ?? "0")g".uppercased())
+                Text("Water: \(self.recipe.waterAmount)g".uppercased())
                     .foregroundColor(.primary)
                     .kerning(2)
                     .scaledFont(name: "Avenir", size: 12)
-                Text("Starter: \(self.recipe.starterAmount ?? "0")g".uppercased())
+                Text("Starter: \(self.recipe.starterAmount)g".uppercased())
                     .kerning(2)
                     .scaledFont(name: "Avenir", size: 12)
-                Text("Salt: \(self.recipe.saltAmount ?? "0")g".uppercased())
+                Text("Salt: \(self.recipe.saltAmount)g".uppercased())
                     .kerning(2)
                     .scaledFont(name: "Avenir", size: 12)
             }

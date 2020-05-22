@@ -17,7 +17,7 @@ struct InstructionsView: View {
     
     var body: some View {
         ScrollView {
-            Text("\(self.recipe.instructions ?? "")")
+            Text("\(self.recipe.instructions)")
                 .foregroundColor(Color("textColor"))
         }
         .frame(maxWidth: .infinity)

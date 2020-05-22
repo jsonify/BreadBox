@@ -14,6 +14,7 @@ struct AddInstructionsView: View {
     
     @State private var textBox = ""
     
+    
     var body: some View {
         ZStack {
             VStack(spacing: 30.0) {
@@ -39,7 +40,7 @@ struct AddInstructionsView: View {
                         }
                         
                         Button(action: {
-                            self.populateCoreData()
+//                            self.updateCoreData(recipe: self.recipe)
                             self.resetFields()
                             self.presentationMode.wrappedValue.dismiss()
                         }) {
@@ -79,7 +80,7 @@ struct AddInstructionsView: View {
                self.textBox = ""
            }
         
-            fileprivate func populateCoreData() {
+    fileprivate func updateCoreData(recipe: Recipe) {
                let recipe = Recipe(context: self.moc)
                 recipe.instructions = self.textBox
                
