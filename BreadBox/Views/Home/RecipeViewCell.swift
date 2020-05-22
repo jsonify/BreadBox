@@ -15,7 +15,7 @@ struct RecipeViewCell: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("\(self.recipe.name ?? "")".uppercased())
+                Text("\(self.recipe.name)".uppercased())
                     .bold()
                     .kerning(3)
                     .scaledFont(name: "Avenir", size: 18)
@@ -24,7 +24,7 @@ struct RecipeViewCell: View {
                 Spacer()
             }
             
-            Text("\(self.recipe.dateString ?? "Do date found")".uppercased())
+            Text("\(self.recipe.createdDateString)".uppercased())
                 .kerning(2)
                 .foregroundColor(.white)
                 .scaledFont(name: "Avenir", size: 10)

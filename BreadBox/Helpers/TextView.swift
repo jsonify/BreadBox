@@ -20,13 +20,13 @@ struct TextView: UIViewRepresentable {
         let myTextView = UITextView()
         myTextView.delegate = context.coordinator
 
-        myTextView.font = UIFont(name: "Avenir", size: 15)
+        myTextView.font = UIFont(name: "Avenir", size: 16)
         myTextView.isScrollEnabled = true
         myTextView.isEditable = true
         myTextView.isUserInteractionEnabled = true
-        myTextView.backgroundColor = UIColor(named: "textViewBG")
+        myTextView.backgroundColor = UIColor(named: "textViewBackground")
         myTextView.text = "Placeholder"
-        myTextView.textColor = UIColor(named: "textColor")
+        myTextView.textColor = UIColor(named: "textField")
 
         return myTextView
     }

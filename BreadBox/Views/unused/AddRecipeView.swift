@@ -144,7 +144,7 @@ struct AddRecipeView: View {
             recipe.saltAmount = self.saltAmount
             recipe.yeastAmount = self.yeastAmount
              recipe.instructions = self.textBox
-            recipe.dateString = dateString
+            recipe.createdDateString = dateString
             self.hyd = self.hydration
             
             do {

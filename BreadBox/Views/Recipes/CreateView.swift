@@ -21,10 +21,10 @@ struct CreateView: View {
     @State private var saltAmount = ""
     @State private var yeastAmount = ""
     @State private var hyd = 0.0
-    @State private var textBox = ""
+    @State private var instructions = ""
     
     var mulitLineText: String {
-        return String(textBox)
+        return String(instructions)
     }
     
     var hydration: Double {
@@ -38,7 +38,7 @@ struct CreateView: View {
     }
     
     var body: some View {
-        ZStack {
+        ScrollView {
             VStack(spacing: 30.0) {
                 HStack {
                     Text("Create".uppercased())
@@ -84,6 +84,7 @@ struct CreateView: View {
                             .font(AvFont.title)
                             .bold()
                             .tracking(0.5)
+                            .disableAutocorrection(true)
                         
                         Spacer()
                     }
@@ -97,6 +98,7 @@ struct CreateView: View {
                             .frame(width: 255, height: 39)
                         
                         Spacer()
+                        
                     }
                     
                 }
@@ -108,28 +110,26 @@ struct CreateView: View {
                 Ingredient(type: "salt", typeAmount: $saltAmount)
                 Ingredient(type: "yeast", typeAmount: $yeastAmount)
                 
-            }
-            .offset(y: -40)
-            HStack {
-                Spacer()
-                Image("icon-add-note")
-                    
-                .resizable()
-                .scaledToFit()
-                    .frame(width: 46)
-                    .onTapGesture {
-                        self.showInstructions.toggle()
-//                        self.populateCoreData()
+                VStack {
+                    HStack {
+                        Text("Instructions:".uppercased())
+                            .font(AvFont.title)
+                            .bold()
+                            .tracking(0.5)
+                        
+                        Spacer()
+                    }
+                    TextView(text: $instructions)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 400)
+                    .cornerRadius(10)
+                        .foregroundColor(Color("textField"))
                 }
-                .sheet(isPresented: self.$showInstructions) {
-                    AddInstructionsView().environment(\.managedObjectContext, self.moc)
-                }
-                .foregroundColor(/*@START_MENU_TOKEN@*/Color("buttonGray")/*@END_MENU_TOKEN@*/)
-                .opacity(self.recipeName.isEmpty ? 0 : 1)
-                .disabled(self.recipeName.isEmpty ? true : false)
+                .padding(.horizontal, 30)
+                
+                
             }
-            .offset(y: screen.height - 460)
-            .padding(.trailing, 30)
+            .padding(.top, 30)
         }
         
     }
@@ -156,14 +156,14 @@ struct CreateView: View {
         recipe.starterAmount = self.starterAmount
         recipe.saltAmount = self.saltAmount
         recipe.yeastAmount = self.yeastAmount
-//         recipe.instructions = self.textBox
-        recipe.dateString = dateString
+        recipe.instructions = self.instructions
+        recipe.createdDateString = dateString
         self.hyd = self.hydration
         
         do {
             try self.moc.save()
             self.hyd = 0
-         self.presentationMode.wrappedValue.dismiss()
+            self.presentationMode.wrappedValue.dismiss()
         } catch {
             print(error)
         }
@@ -176,38 +176,4 @@ struct CreateView_Previews: PreviewProvider {
     }
 }
 
-struct Ingredient: View {
-    var type: String
-    @Binding var typeAmount: String
-    
-    var body: some View {
-        VStack {
-            HStack {
-                Text("\(type):".uppercased())
-                    .font(AvFont.title)
-                    .bold()
-                    .tracking(0.5)
-                
-                Spacer()
-            }
-            
-            HStack {
-                TextField("", text: $typeAmount)
-                    .padding(6)
-                    .background(RoundedRectangle(cornerRadius: 10)
-                        .foregroundColor(Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1))))
-                .foregroundColor(Color("textField"))
-                    .frame(width: 120, height: 34)
-                
-                Text("Grams".uppercased())
-                    .font(AvFont.title)
-                    .bold()
-                    .tracking(0.5)
-                
-                Spacer()
-            }
-            
-        }
-        .padding(.leading, 30)
-    }
-}
+

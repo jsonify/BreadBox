@@ -29,6 +29,8 @@
 		4C74AF332473097C00479017 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C74AF322473097C00479017 /* CustomFont.swift */; };
 		4C74AF35247309FD00479017 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C74AF34247309FD00479017 /* Home.swift */; };
 		4C74AF372473885000479017 /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C74AF362473885000479017 /* RecipeView.swift */; };
+		4C8943A02478534900D2DB65 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C89439F2478534900D2DB65 /* Ingredient.swift */; };
+		4CD6958B24781D05009E7E2D /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD6958A24781D05009E7E2D /* DetailView.swift */; };
 		4CF73634247659B600A3DBBF /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF73633247659B600A3DBBF /* CreateView.swift */; };
 		4CF736362476743C00A3DBBF /* AddInstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF736352476743C00A3DBBF /* AddInstructionsView.swift */; };
 /* End PBXBuildFile section */
@@ -57,6 +59,8 @@
 		4C74AF322473097C00479017 /* CustomFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		4C74AF34247309FD00479017 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		4C74AF362473885000479017 /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
+		4C89439F2478534900D2DB65 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		4CD6958A24781D05009E7E2D /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		4CF73633247659B600A3DBBF /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 		4CF736352476743C00A3DBBF /* AddInstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInstructionsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,8 +143,10 @@
 		4C74AF3824738A1F00479017 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4CD695892477B41D009E7E2D /* unused */,
 				4C74AF3924738A2D00479017 /* Home */,
 				4C74AF3A24738A3C00479017 /* Recipes */,
+				4C89439F2478534900D2DB65 /* Ingredient.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -160,12 +166,20 @@
 			isa = PBXGroup;
 			children = (
 				4C74AF362473885000479017 /* RecipeView.swift */,
-				4C0D48BD2473B8D700DA5289 /* AddRecipeView.swift */,
-				4C0D48CA2474760F00DA5289 /* InstructionsView.swift */,
 				4CF73633247659B600A3DBBF /* CreateView.swift */,
-				4CF736352476743C00A3DBBF /* AddInstructionsView.swift */,
+				4CD6958A24781D05009E7E2D /* DetailView.swift */,
 			);
 			path = Recipes;
+			sourceTree = "<group>";
+		};
+		4CD695892477B41D009E7E2D /* unused */ = {
+			isa = PBXGroup;
+			children = (
+				4CF736352476743C00A3DBBF /* AddInstructionsView.swift */,
+				4C0D48BD2473B8D700DA5289 /* AddRecipeView.swift */,
+				4C0D48CA2474760F00DA5289 /* InstructionsView.swift */,
+			);
+			path = unused;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,6 +262,7 @@
 			files = (
 				4C74AF372473885000479017 /* RecipeView.swift in Sources */,
 				4C0D48CB2474760F00DA5289 /* InstructionsView.swift in Sources */,
+				4C8943A02478534900D2DB65 /* Ingredient.swift in Sources */,
 				4C0D48C02473B90400DA5289 /* CustomTextField.swift in Sources */,
 				4C0D48D02474DB4600DA5289 /* ImagePicker.swift in Sources */,
 				4C74AF332473097C00479017 /* CustomFont.swift in Sources */,
@@ -259,6 +274,7 @@
 				4C0D48C92473D3AC00DA5289 /* SettingsView.swift in Sources */,
 				4CF73634247659B600A3DBBF /* CreateView.swift in Sources */,
 				4C0D48CE24749A2B00DA5289 /* StarterFormulaView.swift in Sources */,
+				4CD6958B24781D05009E7E2D /* DetailView.swift in Sources */,
 				4C74AF2F2473082700479017 /* Recipe+CoreDataProperties.swift in Sources */,
 				4C74AF1D2473073E00479017 /* ContentView.swift in Sources */,
 				4C0D48C22473B91E00DA5289 /* TextView.swift in Sources */,

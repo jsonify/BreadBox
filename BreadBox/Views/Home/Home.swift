@@ -44,10 +44,12 @@ struct Home: View {
                     
                     List {
                         ForEach(self.recipes, id: \.self) { recipe in
-                            NavigationLink(destination: RecipeView(recipe: recipe)) {
+                            NavigationLink(destination:
+                                DetailView(recipe: recipe)
+                            ){
                                 RecipeViewCell(recipe: recipe)
                             }
-                        
+                            
                         }
                         .onDelete(perform: deleteRecipes)
                     }
@@ -61,7 +63,7 @@ struct Home: View {
                                 self.showingSettingsScreen.toggle()
                         }
                         .sheet(isPresented: $showingSettingsScreen) {
-                        SettingsView()
+                            SettingsView()
                         }
                         
                         Spacer()
@@ -77,9 +79,12 @@ struct Home: View {
                         Spacer()
                         Image("icon-test-tube")
                             .foregroundColor(Color("buttonGray"))
-                                .onTapGesture {
-                                    self.showingStarterFormulaView.toggle()
-                            }
+                            .onTapGesture {
+//                                self.showingStarterFormulaView.toggle()
+                                NavigationLink(destination: StarterFormulaView()) {
+                                    Text("Hello")
+                                }
+                        }
                         .sheet(isPresented: $showingStarterFormulaView) {
                             StarterFormulaView().environment(\.managedObjectContext, self.moc)
                         }
@@ -100,11 +105,11 @@ struct Home: View {
         for offset in offsets {
             // find this book in our fetch request
             let recipe = recipes[offset]
-
+            
             // delete it from the context
             moc.delete(recipe)
         }
-
+        
         // save the context
         try? moc.save()
     }

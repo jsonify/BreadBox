@@ -30,5 +30,6 @@ extension View {
 struct AvFont {
     static let header = Font.custom("Avenir", size: 22)
     static let title = Font.custom("Avenir", size: 12)
+    static let textField = Font.custom("Avenir", size: 16)
     static let subtitle = Font.custom("Avenir", size: 10)
 }
