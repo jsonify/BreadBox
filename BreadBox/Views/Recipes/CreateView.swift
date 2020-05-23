@@ -50,6 +50,7 @@ struct CreateView: View {
                     
                     HStack {
                         Button(action: {
+                            Haptic().simpleSuccess()
                             self.presentationMode.wrappedValue.dismiss()
                         }) {
                             Text("Cancel".uppercased())
@@ -62,6 +63,7 @@ struct CreateView: View {
                         }
                         
                         Button(action: {
+                            Haptic().simpleSuccess()
                             self.populateCoreData()
                             self.resetFields()
                         }) {

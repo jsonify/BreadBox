@@ -13,15 +13,17 @@ struct Home: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(fetchRequest: Recipe.allRecipesFetchRequest()) var recipes: FetchedResults<Recipe>
     //
-    @State private var showingAddScreen = false
+    @State private var showingCreateView = false
     @State private var showingSettingsScreen = false
     @State private var showRecipeView = false
     @State private var showingStarterFormulaView = false
-    @State private var recipeNumber = 0
+    @State private var showCelebrationView = false
+    
     //
     
     var body: some View {
         NavigationView {
+            
             ZStack {
                 VStack {
                     HStack {
@@ -37,6 +39,11 @@ struct Home: View {
                         }) {
                             Image("icon-filter")
                                 .foregroundColor(.red)
+                                .onTapGesture {
+                                    self.showCelebrationView.toggle()
+                                    Haptic().simpleSuccess()
+                            }
+                            
                         }
                     }
                     .padding(.horizontal, 30)
@@ -56,35 +63,41 @@ struct Home: View {
                     .onAppear { UITableView.appearance().separatorStyle = .none }
                     
                     Spacer()
+                    //                    BottomBar(showingCreateView: $showingCreateView)
+                    //                    .background(CurvedShape())
                     HStack {
                         Image("icon-gear")
                             .foregroundColor(Color("buttonGray"))
                             .onTapGesture {
                                 self.showingSettingsScreen.toggle()
                         }
+                            
                         .sheet(isPresented: $showingSettingsScreen) {
                             SettingsView()
                         }
+                        .opacity(0)
                         
                         Spacer()
                         Image("icon-plus")
                             .foregroundColor(Color("buttonGray"))
                             .onTapGesture {
-                                self.showingAddScreen.toggle()
+                                self.showingCreateView.toggle()
+                                Haptic().simpleSuccess()
                         }
-                        .sheet(isPresented: $showingAddScreen) {
+                        .sheet(isPresented: $showingCreateView) {
                             CreateView().environment(\.managedObjectContext, self.moc)
                         }
                         
                         Spacer()
                         Image("icon-test-tube")
                             .foregroundColor(Color("buttonGray"))
-                            .onTapGesture {
+//                            .onTapGesture {
 //                                self.showingStarterFormulaView.toggle()
-                                NavigationLink(destination: StarterFormulaView()) {
-                                    Text("Hello")
-                                }
-                        }
+//                                NavigationLink(destination: StarterFormulaView()) {
+//                                    Text("Hello")
+//                                }
+//                        }
+                        .opacity(0)
                         .sheet(isPresented: $showingStarterFormulaView) {
                             StarterFormulaView().environment(\.managedObjectContext, self.moc)
                         }
@@ -92,16 +105,20 @@ struct Home: View {
                     .padding(.bottom, 40)
                     .padding(.horizontal, 40)
                 }
+                
+                CelebrationView(showing: $showCelebrationView)
+                .transition(.moveAndFade)
+                    
             }
             .navigationBarHidden(true)
             .navigationBarTitle(Text(""))
-                
             .edgesIgnoringSafeArea([.top, .bottom])
         }
         .statusBar(hidden: true)
     }
     
     func deleteRecipes(at offsets: IndexSet) {
+        Haptic().simpleWarning()
         for offset in offsets {
             // find this book in our fetch request
             let recipe = recipes[offset]
@@ -112,6 +129,15 @@ struct Home: View {
         
         // save the context
         try? moc.save()
+    }
+}
+
+extension AnyTransition {
+    static var moveAndFade: AnyTransition {
+        let insertion = AnyTransition.move(edge: .top).combined(with: .opacity)
+        let removal = AnyTransition.scale
+            .combined(with: .opacity)
+        return .asymmetric(insertion: insertion, removal: removal)
     }
 }
 

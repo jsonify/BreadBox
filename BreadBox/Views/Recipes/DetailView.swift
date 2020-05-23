@@ -47,6 +47,7 @@ struct DetailView: View {
                     
                     HStack {
                         Button(action: {
+                            Haptic().simpleSuccess()
                             self.presentationMode.wrappedValue.dismiss()
                         }) {
                             Text("Close".uppercased())
@@ -59,6 +60,7 @@ struct DetailView: View {
                         }
                         
                         Button(action: {
+                            Haptic().simpleSuccess()
                             self.updateCoreData()
                             self.presentationMode.wrappedValue.dismiss()
                         }) {
@@ -172,10 +174,11 @@ struct DetailView: View {
     }
     
     fileprivate func populateCoreData() {
-        let date = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM d, yyyy"
-        let dateString = dateFormatter.string(from: date as Date)
+        // use this when you need to add an Updated date
+//        let date = Date()
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "MMM d, yyyy"
+//        let dateString = dateFormatter.string(from: date as Date)
         
         let recipe = Recipe(context: self.moc)
 //        recipe.name = self.updatedRecipeName
@@ -185,7 +188,7 @@ struct DetailView: View {
         recipe.saltAmount = self.updatedSaltAmount
         recipe.yeastAmount = self.updatedYeastAmount
         recipe.instructions = self.updatedInstructions
-        //        recipe.dateString = dateString
+//        recipe.updatedDateString = dateString
         //        self.hyd = self.hydration
         
         do {
