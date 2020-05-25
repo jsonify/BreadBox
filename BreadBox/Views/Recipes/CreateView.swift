@@ -128,12 +128,9 @@ struct CreateView: View {
                         .foregroundColor(Color("textField"))
                 }
                 .padding(.horizontal, 30)
-                
-                
             }
             .padding(.top, 30)
         }
-        
     }
     fileprivate func resetFields() {
         self.recipeName = ""

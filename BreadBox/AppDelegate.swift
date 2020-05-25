@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         IQKeyboardManager.shared.enable = true
         
+        StoreKitHelper.incrementNumberOfTimesLaunched()
+        StoreKitHelper.displayStoreKit()
         return true
     }
 

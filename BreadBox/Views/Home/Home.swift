@@ -17,7 +17,7 @@ struct Home: View {
     @State private var showingSettingsScreen = false
     @State private var showRecipeView = false
     @State private var showingStarterFormulaView = false
-    @State private var showCelebrationView = false
+    @State private var showReferenceView = false
     
     //
     
@@ -34,17 +34,17 @@ struct Home: View {
                         
                         Spacer()
                         
-                        Button(action: {
-                            
-                        }) {
+                        
                             Image("icon-filter")
                                 .foregroundColor(.red)
-                                .onTapGesture {
-                                    self.showCelebrationView.toggle()
-                                    Haptic().simpleSuccess()
-                            }
-                            
+                        .onTapGesture {
+                                self.showReferenceView.toggle()
+                                Haptic().simpleSuccess()
                         }
+                        .sheet(isPresented: $showReferenceView) {
+                            ReferenceView()
+                        }
+                        
                     }
                     .padding(.horizontal, 30)
                     .padding(.top, 60)
@@ -91,24 +91,22 @@ struct Home: View {
                         Spacer()
                         Image("icon-test-tube")
                             .foregroundColor(Color("buttonGray"))
-//                            .onTapGesture {
-//                                self.showingStarterFormulaView.toggle()
-//                                NavigationLink(destination: StarterFormulaView()) {
-//                                    Text("Hello")
-//                                }
-//                        }
-                        .opacity(0)
-                        .sheet(isPresented: $showingStarterFormulaView) {
-                            StarterFormulaView().environment(\.managedObjectContext, self.moc)
+                            //                            .onTapGesture {
+                            //                                self.showingStarterFormulaView.toggle()
+                            //                                NavigationLink(destination: StarterFormulaView()) {
+                            //                                    Text("Hello")
+                            //                                }
+                            //                        }
+                            .opacity(0)
+                            .sheet(isPresented: $showingStarterFormulaView) {
+                                StarterFormulaView().environment(\.managedObjectContext, self.moc)
                         }
                     }
                     .padding(.bottom, 40)
                     .padding(.horizontal, 40)
                 }
+                //                ReferenceView()
                 
-                CelebrationView(showing: $showCelebrationView)
-                .transition(.moveAndFade)
-                    
             }
             .navigationBarHidden(true)
             .navigationBarTitle(Text(""))
@@ -129,15 +127,6 @@ struct Home: View {
         
         // save the context
         try? moc.save()
-    }
-}
-
-extension AnyTransition {
-    static var moveAndFade: AnyTransition {
-        let insertion = AnyTransition.move(edge: .top).combined(with: .opacity)
-        let removal = AnyTransition.scale
-            .combined(with: .opacity)
-        return .asymmetric(insertion: insertion, removal: removal)
     }
 }
 
