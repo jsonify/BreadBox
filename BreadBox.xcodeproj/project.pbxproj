@@ -35,6 +35,7 @@
 		4C8943A62479000400D2DB65 /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8943A52479000400D2DB65 /* Haptic.swift */; };
 		4C8943A82479038900D2DB65 /* CelebrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8943A72479038900D2DB65 /* CelebrationView.swift */; };
 		4C8943AA2479174200D2DB65 /* BlurBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8943A92479174200D2DB65 /* BlurBackground.swift */; };
+		4C8943AC247A053900D2DB65 /* ReferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8943AB247A053900D2DB65 /* ReferenceView.swift */; };
 		4CD6958B24781D05009E7E2D /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD6958A24781D05009E7E2D /* DetailView.swift */; };
 		4CF73634247659B600A3DBBF /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF73633247659B600A3DBBF /* CreateView.swift */; };
 		4CF736362476743C00A3DBBF /* AddInstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF736352476743C00A3DBBF /* AddInstructionsView.swift */; };
@@ -70,6 +71,7 @@
 		4C8943A52479000400D2DB65 /* Haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptic.swift; sourceTree = "<group>"; };
 		4C8943A72479038900D2DB65 /* CelebrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrationView.swift; sourceTree = "<group>"; };
 		4C8943A92479174200D2DB65 /* BlurBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurBackground.swift; sourceTree = "<group>"; };
+		4C8943AB247A053900D2DB65 /* ReferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceView.swift; sourceTree = "<group>"; };
 		4CD6958A24781D05009E7E2D /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		4CF73633247659B600A3DBBF /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 		4CF736352476743C00A3DBBF /* AddInstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInstructionsView.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				4C0D48C82473D3AC00DA5289 /* SettingsView.swift */,
 				4C8943A32478FD2100D2DB65 /* BottomBar.swift */,
 				4C8943A72479038900D2DB65 /* CelebrationView.swift */,
+				4C8943AB247A053900D2DB65 /* ReferenceView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C8943A62479000400D2DB65 /* Haptic.swift in Sources */,
+				4C8943AC247A053900D2DB65 /* ReferenceView.swift in Sources */,
 				4C74AF372473885000479017 /* RecipeView.swift in Sources */,
 				4C8943AA2479174200D2DB65 /* BlurBackground.swift in Sources */,
 				4C0D48CB2474760F00DA5289 /* InstructionsView.swift in Sources */,
