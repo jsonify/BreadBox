@@ -32,7 +32,7 @@ struct ReferenceView: View {
                                 .font(AvFont.subtitle)
                                 .tracking(1)
                                 .frame(width: 60, height: 25)
-                                .background(Color("buttonGray"))
+                                .background(Color("Crumb"))
                                 .foregroundColor(.white)
                                 .cornerRadius(6)
                         }

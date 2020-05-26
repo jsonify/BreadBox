@@ -57,7 +57,7 @@ struct CreateView: View {
                                 .font(AvFont.subtitle)
                                 .tracking(1)
                                 .frame(width: 60, height: 25)
-                                .background(Color("buttonGray"))
+                                .background(Color("Crumb"))
                                 .foregroundColor(.white)
                                 .cornerRadius(6)
                         }
@@ -71,7 +71,7 @@ struct CreateView: View {
                                 .tracking(1)
                                 .font(AvFont.subtitle)
                                 .frame(width: 60, height: 25)
-                                .background(self.recipeName.isEmpty ? Color("buttonGray") : Color(#colorLiteral(red: 0.3176470588, green: 0.5882352941, blue: 0.8352941176, alpha: 1)))
+                                .background(self.recipeName.isEmpty ? Color("buttonGray") : Color("Crust"))
                                 .foregroundColor(.white)
                                 .cornerRadius(6)
                             

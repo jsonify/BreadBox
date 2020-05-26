@@ -35,8 +35,11 @@ struct Home: View {
                         Spacer()
                         
                         
-                            Image("icon-filter")
-                                .foregroundColor(.red)
+                            Image("icon-book")
+                        .resizable()
+                        .scaledToFit()
+                                .frame(width: 25, height: 25)
+                                .foregroundColor(Color("Crust"))
                         .onTapGesture {
                                 self.showReferenceView.toggle()
                                 Haptic().simpleSuccess()
@@ -79,7 +82,7 @@ struct Home: View {
                         
                         Spacer()
                         Image("icon-plus")
-                            .foregroundColor(Color("buttonGray"))
+                            .foregroundColor(Color("Crust"))
                             .onTapGesture {
                                 self.showingCreateView.toggle()
                                 Haptic().simpleSuccess()

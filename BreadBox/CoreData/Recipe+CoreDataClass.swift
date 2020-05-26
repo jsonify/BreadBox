@@ -30,4 +30,5 @@ public class Recipe: NSManagedObject, Identifiable {
 //    unused
     @NSManaged public var updatedDateString: String
     @NSManaged public var notes: String
+    @NSManaged public var rating: Int16
 }

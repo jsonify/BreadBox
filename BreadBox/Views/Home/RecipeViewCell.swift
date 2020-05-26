@@ -26,13 +26,13 @@ struct RecipeViewCell: View {
             
             Text("\(self.recipe.createdDateString)".uppercased())
                 .kerning(2)
-                .foregroundColor(.white)
+                .foregroundColor(Color("Crust"))
                 .scaledFont(name: "Avenir", size: 10)
         }
         .padding(20)
         .frame(maxWidth:.infinity)
         .frame(maxHeight:70)
-        .background(Color.gray)
+        .background(Color("Crumb"))
         .cornerRadius(14)
     .padding()
         
