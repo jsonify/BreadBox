@@ -180,7 +180,7 @@ struct DetailView: View {
     func shareButton() {
         showingSheet.toggle()
         
-        let updatedRecipe = "Here's that \(self.recipe.name) recipe:\n\nFlour: \(self.updatedFlourAmount)g\nWater: \(self.updatedWaterAmount)g\nStarter: \(self.updatedStarterAmount)g\nSalt: \(self.updatedSaltAmount)\nYeast: \(self.updatedYeastAmount)\nAdditional Ingredients: \(self.updatedAdditionalIngredients)\n\nInstructions:\n\(self.updatedInstructions)"
+        let updatedRecipe = "Here's that recipe:\n\(self.recipe.name)\n\nFlour: \(self.updatedFlourAmount)g\nWater: \(self.updatedWaterAmount)g\nStarter: \(self.updatedStarterAmount)g\nSalt: \(self.updatedSaltAmount)g\nYeast: \(self.updatedYeastAmount)g\nAdditional Ingredients:\n \(self.updatedAdditionalIngredients)\n\nInstructions:\n\(self.updatedInstructions)"
         let av = UIActivityViewController(activityItems: [updatedRecipe], applicationActivities: nil)
         
         UIApplication.shared.windows.first?.rootViewController?
@@ -198,31 +198,6 @@ struct DetailView: View {
         
         do {
             try self.moc.save()
-        } catch {
-            print(error)
-        }
-    }
-    
-    fileprivate func populateCoreData() {
-        // use this when you need to add an Updated date
-//        let date = Date()
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "MMM d, yyyy"
-//        let dateString = dateFormatter.string(from: date as Date)
-        
-        let recipe = Recipe(context: self.moc)
-        recipe.flourAmount = self.updatedFlourAmount
-        recipe.waterAmount = self.updatedWaterAmount
-        recipe.starterAmount = self.updatedStarterAmount
-        recipe.saltAmount = self.updatedSaltAmount
-        recipe.yeastAmount = self.updatedYeastAmount
-        recipe.instructions = self.updatedInstructions
-//        recipe.updatedDateString = dateString
-        
-        do {
-            try self.moc.save()
-            //            self.hyd = 0
-            self.presentationMode.wrappedValue.dismiss()
         } catch {
             print(error)
         }
@@ -245,23 +220,5 @@ struct DetailView_Previews: PreviewProvider {
         return NavigationView {
             DetailView(recipe: recipe)
         }
-    }
-}
-
-struct ActivityView: UIViewControllerRepresentable {
-
-    
-    
-    let activityItems: [Any]
-    let applicationActivities: [UIActivity]?
-
-    func makeUIViewController(context: UIViewControllerRepresentableContext<ActivityView>) -> UIActivityViewController {
-        return UIActivityViewController(activityItems: activityItems,
-                                        applicationActivities: applicationActivities)
-    }
-
-    func updateUIViewController(_ uiViewController: UIActivityViewController,
-                                context: UIViewControllerRepresentableContext<ActivityView>) {
-
     }
 }
