@@ -22,6 +22,7 @@ struct CreateView: View {
     @State private var yeastAmount = ""
     @State private var hyd = 0.0
     @State private var instructions = ""
+    @State private var additionalIngredients = ""
     
     var mulitLineText: String {
         return String(instructions)
@@ -65,7 +66,7 @@ struct CreateView: View {
                         Button(action: {
                             Haptic().simpleSuccess()
                             self.populateCoreData()
-                            self.resetFields()
+//                            self.resetFields()
                         }) {
                             Text("Save".uppercased())
                                 .tracking(1)
@@ -114,6 +115,21 @@ struct CreateView: View {
                 
                 VStack {
                     HStack {
+                        Text("Additional Ingredients:".uppercased())
+                            .font(AvFont.title)
+                            .bold()
+                            .tracking(0.5)
+                        
+                        Spacer()
+                    }
+                    TextView(text: $additionalIngredients)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 100)
+                        .cornerRadius(10)
+                        .foregroundColor(Color("textField"))
+                        .padding(.bottom, 30)
+                    
+                    HStack {
                         Text("Instructions:".uppercased())
                             .font(AvFont.title)
                             .bold()
@@ -124,23 +140,26 @@ struct CreateView: View {
                     TextView(text: $instructions)
                         .frame(maxWidth: .infinity)
                         .frame(height: 400)
-                    .cornerRadius(10)
+                        .cornerRadius(10)
                         .foregroundColor(Color("textField"))
                 }
+                    
                 .padding(.horizontal, 30)
             }
             .padding(.top, 30)
         }
     }
-    fileprivate func resetFields() {
-        self.recipeName = ""
-        self.flourAmount = ""
-        self.waterAmount = ""
-        self.starterAmount = ""
-        self.saltAmount = ""
-        self.yeastAmount = ""
-        self.hyd = 0.0
-    }
+//    fileprivate func resetFields() {
+//        self.recipeName = ""
+//        self.flourAmount = ""
+//        self.waterAmount = ""
+//        self.starterAmount = ""
+//        self.saltAmount = ""
+//        self.yeastAmount = ""
+//        self.additionalIngredients = ""
+//        self.instructions = ""
+//        self.hyd = 0.0
+//    }
     
     fileprivate func populateCoreData() {
         let date = Date()
@@ -156,7 +175,9 @@ struct CreateView: View {
         recipe.saltAmount = self.saltAmount
         recipe.yeastAmount = self.yeastAmount
         recipe.instructions = self.instructions
+        recipe.additionalIngredients = self.additionalIngredients
         recipe.createdDateString = dateString
+        
         self.hyd = self.hydration
         
         do {

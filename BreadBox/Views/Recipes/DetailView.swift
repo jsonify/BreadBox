@@ -12,6 +12,7 @@ import SwiftUI
 struct DetailView: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.presentationMode) var presentationMode
+    @State private var showingSheet = false
     
     var recipe: Recipe
     
@@ -21,6 +22,7 @@ struct DetailView: View {
     @State private var updatedStarterAmount: String = ""
     @State private var updatedSaltAmount: String = ""
     @State private var updatedYeastAmount: String = ""
+    @State private var updatedAdditionalIngredients = ""
     @State private var updatedInstructions: String = ""
     
     //    var hydration: Double {
@@ -32,6 +34,7 @@ struct DetailView: View {
     //        let finalHydration = (w / f) * 100
     //        return finalHydration
     //    }
+    
     
     var body: some View {
         ScrollView {
@@ -79,26 +82,25 @@ struct DetailView: View {
                 
                 VStack {
                     HStack {
-                        Text("Name your recipe:".uppercased())
+                        Text("Recipe Name:".uppercased())
                             .font(AvFont.title)
                             .bold()
                             .tracking(0.5)
                         
                         Spacer()
+                        
+                        Button(action: {
+                            self.shareButton()
+                        }) {
+                            Image(systemName: "square.and.arrow.up")
+                                .foregroundColor(Color("Crust"))
+                        }
+                        .padding(.trailing, 30)
                     }
                     
                     HStack {
                         Text("\(self.recipe.name)")
-//                        TextField("", text: $updatedRecipeName)
-//                            .padding(8)
-//                            .background(RoundedRectangle(cornerRadius: 10)
-//                                .foregroundColor(Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1))))
-//                            .foregroundColor(Color("textField"))
-//                            .frame(width: 255, height: 39)
-//                            .onAppear {
-//                                self.updatedRecipeName = self.recipe.name
-//                        }
-                        
+                
                         Spacer()
                         
                     }
@@ -129,6 +131,24 @@ struct DetailView: View {
                 
                 VStack {
                     HStack {
+                        Text("Additional Ingredients:".uppercased())
+                            .font(AvFont.title)
+                            .bold()
+                            .tracking(0.5)
+                        
+                        Spacer()
+                    }
+                    TextView(text: $updatedAdditionalIngredients)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 100)
+                        .cornerRadius(10)
+                        .foregroundColor(Color("textField"))
+                        .onAppear {
+                                self.updatedAdditionalIngredients = self.recipe.additionalIngredients
+                        }
+                        .padding(.bottom, 30)
+                    
+                    HStack {
                         Text("Instructions:".uppercased())
                             .font(AvFont.title)
                             .bold()
@@ -157,13 +177,23 @@ struct DetailView: View {
         
     }
     
+    func shareButton() {
+        showingSheet.toggle()
+        
+        let updatedRecipe = "Here's that \(self.recipe.name) recipe:\n\nFlour: \(self.updatedFlourAmount)g\nWater: \(self.updatedWaterAmount)g\nStarter: \(self.updatedStarterAmount)g\nSalt: \(self.updatedSaltAmount)\nYeast: \(self.updatedYeastAmount)\nAdditional Ingredients: \(self.updatedAdditionalIngredients)\n\nInstructions:\n\(self.updatedInstructions)"
+        let av = UIActivityViewController(activityItems: [updatedRecipe], applicationActivities: nil)
+        
+        UIApplication.shared.windows.first?.rootViewController?
+        .present(av, animated: true, completion: nil)
+    }
+    
     func updateCoreData() {
-//        self.recipe.name = self.updatedRecipeName
         self.recipe.flourAmount = self.updatedFlourAmount
         self.recipe.waterAmount = self.updatedWaterAmount
         self.recipe.starterAmount = self.updatedStarterAmount
         self.recipe.saltAmount = self.updatedSaltAmount
         self.recipe.yeastAmount = self.updatedYeastAmount
+        self.recipe.additionalIngredients = self.updatedAdditionalIngredients
         self.recipe.instructions = self.updatedInstructions
         
         do {
@@ -181,7 +211,6 @@ struct DetailView: View {
 //        let dateString = dateFormatter.string(from: date as Date)
         
         let recipe = Recipe(context: self.moc)
-//        recipe.name = self.updatedRecipeName
         recipe.flourAmount = self.updatedFlourAmount
         recipe.waterAmount = self.updatedWaterAmount
         recipe.starterAmount = self.updatedStarterAmount
@@ -189,7 +218,6 @@ struct DetailView: View {
         recipe.yeastAmount = self.updatedYeastAmount
         recipe.instructions = self.updatedInstructions
 //        recipe.updatedDateString = dateString
-        //        self.hyd = self.hydration
         
         do {
             try self.moc.save()
@@ -217,5 +245,23 @@ struct DetailView_Previews: PreviewProvider {
         return NavigationView {
             DetailView(recipe: recipe)
         }
+    }
+}
+
+struct ActivityView: UIViewControllerRepresentable {
+
+    
+    
+    let activityItems: [Any]
+    let applicationActivities: [UIActivity]?
+
+    func makeUIViewController(context: UIViewControllerRepresentableContext<ActivityView>) -> UIActivityViewController {
+        return UIActivityViewController(activityItems: activityItems,
+                                        applicationActivities: applicationActivities)
+    }
+
+    func updateUIViewController(_ uiViewController: UIActivityViewController,
+                                context: UIViewControllerRepresentableContext<ActivityView>) {
+
     }
 }

@@ -20,6 +20,7 @@ public class Recipe: NSManagedObject, Identifiable {
     @NSManaged public var waterAmount: String
     @NSManaged public var yeastAmount: String
     @NSManaged public var instructions: String
+    @NSManaged public var additionalIngredients: String
     @NSManaged public var createdDateString: String
     
     @NSManaged public var starterName: String
@@ -28,7 +29,7 @@ public class Recipe: NSManagedObject, Identifiable {
     @NSManaged public var starterWaterAmount: String
     
 //    unused
-    @NSManaged public var updatedDateString: String
     @NSManaged public var notes: String
+    @NSManaged public var updatedDateString: String
     @NSManaged public var rating: Int16
 }
