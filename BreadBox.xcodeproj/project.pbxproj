@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4C0D48BE2473B8D700DA5289 /* AddRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D48BD2473B8D700DA5289 /* AddRecipeView.swift */; };
+		4C0D48BE2473B8D700DA5289 /* Scratchpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D48BD2473B8D700DA5289 /* Scratchpad.swift */; };
 		4C0D48C02473B90400DA5289 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D48BF2473B90400DA5289 /* CustomTextField.swift */; };
 		4C0D48C22473B91E00DA5289 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D48C12473B91E00DA5289 /* TextView.swift */; };
 		4C0D48C52473CC1100DA5289 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4C0D48C42473CC1100DA5289 /* IQKeyboardManagerSwift */; };
@@ -45,7 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4C0D48BD2473B8D700DA5289 /* AddRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeView.swift; sourceTree = "<group>"; };
+		4C0D48BD2473B8D700DA5289 /* Scratchpad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scratchpad.swift; sourceTree = "<group>"; };
 		4C0D48BF2473B90400DA5289 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		4C0D48C12473B91E00DA5289 /* TextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		4C0D48C62473CF1C00DA5289 /* RecipeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewCell.swift; sourceTree = "<group>"; };
@@ -211,7 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				4CF736352476743C00A3DBBF /* AddInstructionsView.swift */,
-				4C0D48BD2473B8D700DA5289 /* AddRecipeView.swift */,
+				4C0D48BD2473B8D700DA5289 /* Scratchpad.swift */,
 				4C0D48CA2474760F00DA5289 /* InstructionsView.swift */,
 			);
 			path = unused;
@@ -227,6 +227,7 @@
 				4C74AF0E2473073E00479017 /* Sources */,
 				4C74AF0F2473073E00479017 /* Frameworks */,
 				4C74AF102473073E00479017 /* Resources */,
+				4C4836A4247FAE880048D287 /* Increment Build Number */,
 			);
 			buildRules = (
 			);
@@ -291,6 +292,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4C4836A4247FAE880048D287 /* Increment Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Increment Build Number";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4C74AF0E2473073E00479017 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -310,7 +332,7 @@
 				4C74AF2E2473082700479017 /* Recipe+CoreDataClass.swift in Sources */,
 				4C8943B3247B884B00D2DB65 /* GlossaryData.swift in Sources */,
 				4C74AF1B2473073E00479017 /* BreadBox.xcdatamodeld in Sources */,
-				4C0D48BE2473B8D700DA5289 /* AddRecipeView.swift in Sources */,
+				4C0D48BE2473B8D700DA5289 /* Scratchpad.swift in Sources */,
 				4C74AF162473073E00479017 /* AppDelegate.swift in Sources */,
 				4C0D48C92473D3AC00DA5289 /* SettingsView.swift in Sources */,
 				4C8943A22478D13500D2DB65 /* CustomShapes.swift in Sources */,
@@ -469,6 +491,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = jasonrueckert.com.BreadBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -489,6 +512,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = jasonrueckert.com.BreadBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
