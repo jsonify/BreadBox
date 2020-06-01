@@ -17,9 +17,9 @@ struct StarterDetailView: View {
 
     @State private var showingSheet = false
     
-    @State private var updatedFlourAmount: Double = 0.0
-    @State private var updatedWaterAmount: Double = 0.0
-    @State private var updatedSeedAmount: Double = 0.0
+    @State private var updatedFlourAmount = 0.0
+    @State private var updatedWaterAmount = 0.0
+    @State private var updatedSeedAmount = 0.0
     @State private var updatedInstructions: String = ""
     
     var body: some View {
@@ -107,7 +107,7 @@ struct StarterDetailView: View {
                     }
                     
                     HStack {
-                        Text("\(updatedFlourAmount)")
+                        Text("\(updatedFlourAmount, specifier: "%.0f")%")
                             .frame(width: 120, height: 34)
                             .font(.caption)
                             .onAppear {
@@ -128,7 +128,7 @@ struct StarterDetailView: View {
                     }
                     
                     HStack {
-                        Text("\(updatedWaterAmount)")
+                        Text("\(updatedWaterAmount, specifier: "%.0f")%")
                             .frame(width: 120, height: 34)
                             .font(.caption)
                             .onAppear {
@@ -149,7 +149,7 @@ struct StarterDetailView: View {
                     }
                     
                     HStack {
-                        Text("\(updatedSeedAmount)")
+                        Text("\(updatedSeedAmount, specifier: "%.0f")%")
                             .frame(width: 120, height: 34)
                             .font(.caption)
                             .onAppear {
@@ -190,6 +190,11 @@ struct StarterDetailView: View {
         .statusBar(hidden: true)
         .navigationBarTitle("")
         .navigationBarHidden(true)
+        .onAppear {
+            self.updatedSeedAmount = self.starter.seedAmount
+            self.updatedWaterAmount = self.starter.waterAmount
+            self.updatedFlourAmount = self.starter.flourAmount
+        }
     }
     
     func shareButton() {

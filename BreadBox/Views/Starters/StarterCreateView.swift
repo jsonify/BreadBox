@@ -19,9 +19,9 @@ struct StarterCreateView: View {
     @State private var instructions = ""
     
     var body: some View {
-        let allBindings = [$flourAmount, $waterAmount, $seedAmount]
+        //        let allBindings = [$flourAmount, $waterAmount, $seedAmount]
         
-        return VStack {
+        VStack {
             HStack {
                 Text("Create".uppercased())
                     .font(AvFont.header)
@@ -88,79 +88,81 @@ struct StarterCreateView: View {
             }
             .padding(.leading, 30)
             
-            VStack {
-                HStack {
-                    Text("Flour:".uppercased())
-                        .font(AvFont.title)
-                        .bold()
-                        .tracking(0.5)
-                    
-                    Spacer()
-                }
-                
-                HStack {
-                    Text("\(flourAmount)")
-                        .frame(width: 120, height: 34)
-                        .font(.caption)
-                    
-                    synchronizedSlider(from: allBindings, index: 0)
-                }
-                .padding(.trailing, 30)
-                
-                HStack {
-                    Text("Water:".uppercased())
-                        .font(AvFont.title)
-                        .bold()
-                        .tracking(0.5)
-                    
-                    Spacer()
-                }
-                
-                HStack {
-                    Text("\(waterAmount)")
-                        .frame(width: 120, height: 34)
-                        .font(.caption)
-                    
-                    synchronizedSlider(from: allBindings, index: 1)
-                }
-                .padding(.trailing, 30)
-                
-                HStack {
-                    Text("Seed:".uppercased())
-                        .font(AvFont.title)
-                        .bold()
-                        .tracking(0.5)
-                    
-                    Spacer()
-                }
-                
-                HStack {
-                    Text("\(seedAmount)")
-                        .frame(width: 120, height: 34)
-                        .font(.caption)
-                    
-                    synchronizedSlider(from: allBindings, index: 2)
-                }
-                .padding(.trailing, 30)
-            }
-            .padding(.leading, 30)
+            Spacer()
             
-            VStack {
-                HStack {
-                    Text("Instructions:".uppercased())
-                        .font(AvFont.title)
-                        .bold()
-                        .tracking(0.5)
-                    
-                    Spacer()
-                }
-                TextView(text: $instructions)
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 400)
-                    .cornerRadius(10)
-                    .foregroundColor(Color("textField"))
-            }
-            .padding(.horizontal, 30)
+            //            VStack {
+            //                HStack {
+            //                    Text("Flour:".uppercased())
+            //                        .font(AvFont.title)
+            //                        .bold()
+            //                        .tracking(0.5)
+            //
+            //                    Spacer()
+            //                }
+            //
+            //                HStack {
+            //                    Text("\(flourAmount)")
+            //                        .frame(width: 120, height: 34)
+            //                        .font(.caption)
+            //
+            //                    synchronizedSlider(from: allBindings, index: 0)
+            //                }
+            //                .padding(.trailing, 30)
+            //
+            //                HStack {
+            //                    Text("Water:".uppercased())
+            //                        .font(AvFont.title)
+            //                        .bold()
+            //                        .tracking(0.5)
+            //
+            //                    Spacer()
+            //                }
+            //
+            //                HStack {
+            //                    Text("\(waterAmount)")
+            //                        .frame(width: 120, height: 34)
+            //                        .font(.caption)
+            //
+            //                    synchronizedSlider(from: allBindings, index: 1)
+            //                }
+            //                .padding(.trailing, 30)
+            //
+            //                HStack {
+            //                    Text("Seed:".uppercased())
+            //                        .font(AvFont.title)
+            //                        .bold()
+            //                        .tracking(0.5)
+            //
+            //                    Spacer()
+            //                }
+            //
+            //                HStack {
+            //                    Text("\(seedAmount)")
+            //                        .frame(width: 120, height: 34)
+            //                        .font(.caption)
+            //
+            //                    synchronizedSlider(from: allBindings, index: 2)
+            //                }
+            //                .padding(.trailing, 30)
+            //            }
+            //            .padding(.leading, 30)
+            //
+            //            VStack {
+            //                HStack {
+            //                    Text("Instructions:".uppercased())
+            //                        .font(AvFont.title)
+            //                        .bold()
+            //                        .tracking(0.5)
+            //
+            //                    Spacer()
+            //                }
+            //                TextView(text: $instructions)
+            //                    .frame(maxWidth: .infinity)
+            //                    .frame(height: 400)
+            //                    .cornerRadius(10)
+            //                    .foregroundColor(Color("textField"))
+            //            }
+            //            .padding(.horizontal, 30)
         }
         .padding(.top, 60)
     }
@@ -169,21 +171,21 @@ struct StarterCreateView: View {
         return Slider(value: synchronizedBinding(from: bindings, index: index),
                       in: 0...100)
     }
-
-
+    
+    
     func synchronizedBinding(from bindings: [Binding<Double>], index: Int) -> Binding<Double> {
-
+        
         return Binding(get: {
             return bindings[index].wrappedValue
         }, set: { newValue in
-
+            
             let sum = bindings.indices.lazy.filter{ $0 != index }.map{ bindings[$0].wrappedValue }.reduce(0.0, +)
             // Use the 'sum' below if you initially provide values which sum to 100
             // and if you do not set the state in code (e.g. click the button)
             //let sum = 100.0 - bindings[index].wrappedValue
-
+            
             let remaining = 100.0 - newValue
-
+            
             if sum != 0.0 {
                 for i in bindings.indices {
                     if i != index {
@@ -201,7 +203,7 @@ struct StarterCreateView: View {
             }
             bindings[index].wrappedValue = newValue
         })
-
+        
     }
     
     fileprivate func populateCoreData() {

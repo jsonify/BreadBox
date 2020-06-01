@@ -81,7 +81,7 @@ struct StarterFormulaView: View {
                     
                     Spacer()
                 }
-                .padding(.bottom, 40)
+                .padding(.bottom, 10)
                 .padding(.horizontal, 40)
             }
             .padding(.top, 30)
