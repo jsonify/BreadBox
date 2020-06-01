@@ -17,17 +17,13 @@ struct StarterDetailView: View {
 
     @State private var showingSheet = false
     
-    @State private var updatedFlourAmount: String = ""
-    @State private var updatedWaterAmount: String = ""
-    @State private var updatedSeedAmount: String = ""
+    @State private var updatedFlourAmount: Double = 0.0
+    @State private var updatedWaterAmount: Double = 0.0
+    @State private var updatedSeedAmount: Double = 0.0
     @State private var updatedInstructions: String = ""
     
-    @State var value1 = 33.3
-    @State var value2 = 33.3
-    @State var value3 = 33.3
-    
     var body: some View {
-        let allBindings = [$value1, $value2, $value3]
+        let allBindings = [$updatedFlourAmount, $updatedWaterAmount, $updatedSeedAmount]
         
         return ScrollView {
             VStack(spacing: 30.0) {
@@ -115,7 +111,7 @@ struct StarterDetailView: View {
                             .frame(width: 120, height: 34)
                             .font(.caption)
                             .onAppear {
-                                self.updatedFlourAmount = String("\(self.value1)")
+                                self.updatedFlourAmount = self.starter.flourAmount
                         }
                         
                         synchronizedSlider(from: allBindings, index: 0)
@@ -136,7 +132,7 @@ struct StarterDetailView: View {
                             .frame(width: 120, height: 34)
                             .font(.caption)
                             .onAppear {
-                                self.updatedWaterAmount = String("\(self.value2)")
+                                self.updatedWaterAmount = self.starter.waterAmount
                         }
                         
                         synchronizedSlider(from: allBindings, index: 1)
@@ -157,7 +153,7 @@ struct StarterDetailView: View {
                             .frame(width: 120, height: 34)
                             .font(.caption)
                             .onAppear {
-                                self.updatedSeedAmount = String("\(self.value3)")
+                                self.updatedSeedAmount = self.starter.seedAmount
                         }
                         
                         synchronizedSlider(from: allBindings, index: 2)

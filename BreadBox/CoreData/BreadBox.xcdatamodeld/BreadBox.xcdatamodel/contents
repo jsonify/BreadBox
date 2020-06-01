@@ -20,12 +20,12 @@
         <attribute name="yeastAmount" optional="YES" attributeType="String"/>
     </entity>
     <entity name="Starter" representedClassName="Starter" syncable="YES">
-        <attribute name="flourAmount" optional="YES" attributeType="String"/>
+        <attribute name="flourAmount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="instructions" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="seedAmount" optional="YES" attributeType="String"/>
-        <attribute name="waterAmount" optional="YES" attributeType="String"/>
+        <attribute name="seedAmount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="waterAmount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
     <elements>
         <element name="Recipe" positionX="-54" positionY="-9" width="128" height="298"/>

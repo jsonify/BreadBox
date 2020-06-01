@@ -18,9 +18,9 @@ extension Starter {
     }
 
     @NSManaged public var name: String
-    @NSManaged public var waterAmount: String
-    @NSManaged public var flourAmount: String
-    @NSManaged public var seedAmount: String
+    @NSManaged public var waterAmount: Double
+    @NSManaged public var flourAmount: Double
+    @NSManaged public var seedAmount: Double
     @NSManaged public var id: UUID?
     @NSManaged public var instructions: String
     
