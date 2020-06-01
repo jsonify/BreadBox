@@ -2,7 +2,7 @@
 //  StarterFormulaView.swift
 //  BreadBox
 //
-//  Created by Jason Rueckert on 6/1/20.
+//  Created by Jason Rueckert on 5/19/20.
 //  Copyright © 2020 Jason Rueckert. All rights reserved.
 //
 
@@ -16,7 +16,6 @@ struct StarterFormulaView: View {
     @State private var showingStarterCreateView = false
     
     var body: some View {
-
         NavigationView {
             VStack {
                 ZStack {
@@ -82,7 +81,7 @@ struct StarterFormulaView: View {
                     
                     Spacer()
                 }
-                .padding(.bottom, 40)
+                .padding(.bottom, 10)
                 .padding(.horizontal, 40)
             }
             .padding(.top, 30)
