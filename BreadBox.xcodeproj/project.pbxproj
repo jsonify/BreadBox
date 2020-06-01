@@ -42,6 +42,7 @@
 		4C8943B3247B884B00D2DB65 /* GlossaryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8943B2247B884B00D2DB65 /* GlossaryData.swift */; };
 		4C8943B5247B9BCC00D2DB65 /* StoreKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8943B4247B9BCC00D2DB65 /* StoreKitHelper.swift */; };
 		4C9AB8552485C1A800F00480 /* StarterFormulaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AB8542485C1A800F00480 /* StarterFormulaView.swift */; };
+		4C9AB8572485C27700F00480 /* StarterFormulaViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AB8562485C27700F00480 /* StarterFormulaViewCell.swift */; };
 		4CD6958B24781D05009E7E2D /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD6958A24781D05009E7E2D /* DetailView.swift */; };
 		4CF73634247659B600A3DBBF /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF73633247659B600A3DBBF /* CreateView.swift */; };
 		4CF736362476743C00A3DBBF /* AddInstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF736352476743C00A3DBBF /* AddInstructionsView.swift */; };
@@ -84,6 +85,7 @@
 		4C8943B2247B884B00D2DB65 /* GlossaryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlossaryData.swift; sourceTree = "<group>"; };
 		4C8943B4247B9BCC00D2DB65 /* StoreKitHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreKitHelper.swift; sourceTree = "<group>"; };
 		4C9AB8542485C1A800F00480 /* StarterFormulaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterFormulaView.swift; sourceTree = "<group>"; };
+		4C9AB8562485C27700F00480 /* StarterFormulaViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterFormulaViewCell.swift; sourceTree = "<group>"; };
 		4CD6958A24781D05009E7E2D /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		4CF73633247659B600A3DBBF /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 		4CF736352476743C00A3DBBF /* AddInstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInstructionsView.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			children = (
 				4C4A1D12248358F60068990C /* StarterDetailView.swift */,
 				4C4A1D1424835AE00068990C /* StarterCreateView.swift */,
+				4C9AB8562485C27700F00480 /* StarterFormulaViewCell.swift */,
 			);
 			path = Starters;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				4C74AF332473097C00479017 /* CustomFont.swift in Sources */,
 				4CF736362476743C00A3DBBF /* AddInstructionsView.swift in Sources */,
 				4C74AF2E2473082700479017 /* Recipe+CoreDataClass.swift in Sources */,
+				4C9AB8572485C27700F00480 /* StarterFormulaViewCell.swift in Sources */,
 				4C8943B3247B884B00D2DB65 /* GlossaryData.swift in Sources */,
 				4C74AF1B2473073E00479017 /* BreadBox.xcdatamodeld in Sources */,
 				4C0D48BE2473B8D700DA5289 /* Scratchpad.swift in Sources */,
