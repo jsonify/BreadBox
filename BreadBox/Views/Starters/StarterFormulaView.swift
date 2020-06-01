@@ -52,7 +52,7 @@ struct StarterFormulaView: View {
                                 NavigationLink(destination:
                                     StarterDetailView(starter: starter)
                                 ){
-                                    Text("\(starter.name)")
+                                    StarterFormulaViewCell(starter: starter)
                                 }
                                 
                             }

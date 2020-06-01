@@ -14,8 +14,10 @@
 		4C0D48C72473CF1C00DA5289 /* RecipeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D48C62473CF1C00DA5289 /* RecipeViewCell.swift */; };
 		4C0D48C92473D3AC00DA5289 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D48C82473D3AC00DA5289 /* SettingsView.swift */; };
 		4C0D48CB2474760F00DA5289 /* InstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D48CA2474760F00DA5289 /* InstructionsView.swift */; };
+		4C0D48CE24749A2B00DA5289 /* StarterFormulaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D48CD24749A2B00DA5289 /* StarterFormulaView.swift */; };
 		4C0D48D02474DB4600DA5289 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D48CF2474DB4600DA5289 /* ImagePicker.swift */; };
 		4C0D48D42475000A00DA5289 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C0D48D32475000A00DA5289 /* Colors.xcassets */; };
+		4C4033EB2485C8490055A7DD /* StarterFormulaViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4033EA2485C8490055A7DD /* StarterFormulaViewCell.swift */; };
 		4C4836A7248308B20048D287 /* Starter+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4836A5248308B20048D287 /* Starter+CoreDataClass.swift */; };
 		4C4836A8248308B20048D287 /* Starter+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4836A6248308B20048D287 /* Starter+CoreDataProperties.swift */; };
 		4C4A1D13248358F60068990C /* StarterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4A1D12248358F60068990C /* StarterDetailView.swift */; };
@@ -35,14 +37,13 @@
 		4C8943A22478D13500D2DB65 /* CustomShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8943A12478D13500D2DB65 /* CustomShapes.swift */; };
 		4C8943A42478FD2100D2DB65 /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8943A32478FD2100D2DB65 /* BottomBar.swift */; };
 		4C8943A62479000400D2DB65 /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8943A52479000400D2DB65 /* Haptic.swift */; };
+		4C8943A82479038900D2DB65 /* CelebrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8943A72479038900D2DB65 /* CelebrationView.swift */; };
 		4C8943AA2479174200D2DB65 /* BlurBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8943A92479174200D2DB65 /* BlurBackground.swift */; };
 		4C8943AC247A053900D2DB65 /* ReferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8943AB247A053900D2DB65 /* ReferenceView.swift */; };
 		4C8943AF247B805A00D2DB65 /* GlossaryTermModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8943AE247B805A00D2DB65 /* GlossaryTermModel.swift */; };
 		4C8943B1247B813F00D2DB65 /* bakingTerms.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C8943B0247B813F00D2DB65 /* bakingTerms.json */; };
 		4C8943B3247B884B00D2DB65 /* GlossaryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8943B2247B884B00D2DB65 /* GlossaryData.swift */; };
 		4C8943B5247B9BCC00D2DB65 /* StoreKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8943B4247B9BCC00D2DB65 /* StoreKitHelper.swift */; };
-		4C9AB8552485C1A800F00480 /* StarterFormulaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AB8542485C1A800F00480 /* StarterFormulaView.swift */; };
-		4C9AB8572485C27700F00480 /* StarterFormulaViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AB8562485C27700F00480 /* StarterFormulaViewCell.swift */; };
 		4CD6958B24781D05009E7E2D /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD6958A24781D05009E7E2D /* DetailView.swift */; };
 		4CF73634247659B600A3DBBF /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF73633247659B600A3DBBF /* CreateView.swift */; };
 		4CF736362476743C00A3DBBF /* AddInstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF736352476743C00A3DBBF /* AddInstructionsView.swift */; };
@@ -55,8 +56,10 @@
 		4C0D48C62473CF1C00DA5289 /* RecipeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewCell.swift; sourceTree = "<group>"; };
 		4C0D48C82473D3AC00DA5289 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		4C0D48CA2474760F00DA5289 /* InstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsView.swift; sourceTree = "<group>"; };
+		4C0D48CD24749A2B00DA5289 /* StarterFormulaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterFormulaView.swift; sourceTree = "<group>"; };
 		4C0D48CF2474DB4600DA5289 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		4C0D48D32475000A00DA5289 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		4C4033EA2485C8490055A7DD /* StarterFormulaViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterFormulaViewCell.swift; sourceTree = "<group>"; };
 		4C4836A5248308B20048D287 /* Starter+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Starter+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4C4836A6248308B20048D287 /* Starter+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Starter+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4C4A1D12248358F60068990C /* StarterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterDetailView.swift; sourceTree = "<group>"; };
@@ -78,14 +81,13 @@
 		4C8943A12478D13500D2DB65 /* CustomShapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShapes.swift; sourceTree = "<group>"; };
 		4C8943A32478FD2100D2DB65 /* BottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
 		4C8943A52479000400D2DB65 /* Haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptic.swift; sourceTree = "<group>"; };
+		4C8943A72479038900D2DB65 /* CelebrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrationView.swift; sourceTree = "<group>"; };
 		4C8943A92479174200D2DB65 /* BlurBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurBackground.swift; sourceTree = "<group>"; };
 		4C8943AB247A053900D2DB65 /* ReferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceView.swift; sourceTree = "<group>"; };
 		4C8943AE247B805A00D2DB65 /* GlossaryTermModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlossaryTermModel.swift; sourceTree = "<group>"; };
 		4C8943B0247B813F00D2DB65 /* bakingTerms.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bakingTerms.json; sourceTree = "<group>"; };
 		4C8943B2247B884B00D2DB65 /* GlossaryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlossaryData.swift; sourceTree = "<group>"; };
 		4C8943B4247B9BCC00D2DB65 /* StoreKitHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreKitHelper.swift; sourceTree = "<group>"; };
-		4C9AB8542485C1A800F00480 /* StarterFormulaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterFormulaView.swift; sourceTree = "<group>"; };
-		4C9AB8562485C27700F00480 /* StarterFormulaViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterFormulaViewCell.swift; sourceTree = "<group>"; };
 		4CD6958A24781D05009E7E2D /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		4CF73633247659B600A3DBBF /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 		4CF736352476743C00A3DBBF /* AddInstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInstructionsView.swift; sourceTree = "<group>"; };
@@ -106,9 +108,10 @@
 		4C4A1D11248358DB0068990C /* Starters */ = {
 			isa = PBXGroup;
 			children = (
+				4C0D48CD24749A2B00DA5289 /* StarterFormulaView.swift */,
 				4C4A1D12248358F60068990C /* StarterDetailView.swift */,
 				4C4A1D1424835AE00068990C /* StarterCreateView.swift */,
-				4C9AB8562485C27700F00480 /* StarterFormulaViewCell.swift */,
+				4C4033EA2485C8490055A7DD /* StarterFormulaViewCell.swift */,
 			);
 			path = Starters;
 			sourceTree = "<group>";
@@ -203,8 +206,8 @@
 				4C0D48C62473CF1C00DA5289 /* RecipeViewCell.swift */,
 				4C0D48C82473D3AC00DA5289 /* SettingsView.swift */,
 				4C8943A32478FD2100D2DB65 /* BottomBar.swift */,
+				4C8943A72479038900D2DB65 /* CelebrationView.swift */,
 				4C8943AB247A053900D2DB65 /* ReferenceView.swift */,
-				4C9AB8542485C1A800F00480 /* StarterFormulaView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C8943A62479000400D2DB65 /* Haptic.swift in Sources */,
+				4C4033EB2485C8490055A7DD /* StarterFormulaViewCell.swift in Sources */,
 				4C8943AC247A053900D2DB65 /* ReferenceView.swift in Sources */,
 				4C8943AA2479174200D2DB65 /* BlurBackground.swift in Sources */,
 				4C4A1D1524835AE00068990C /* StarterCreateView.swift in Sources */,
@@ -347,13 +351,12 @@
 				4C4A1D13248358F60068990C /* StarterDetailView.swift in Sources */,
 				4C8943A02478534900D2DB65 /* Ingredient.swift in Sources */,
 				4C8943B5247B9BCC00D2DB65 /* StoreKitHelper.swift in Sources */,
-				4C9AB8552485C1A800F00480 /* StarterFormulaView.swift in Sources */,
 				4C0D48C02473B90400DA5289 /* CustomTextField.swift in Sources */,
 				4C0D48D02474DB4600DA5289 /* ImagePicker.swift in Sources */,
+				4C8943A82479038900D2DB65 /* CelebrationView.swift in Sources */,
 				4C74AF332473097C00479017 /* CustomFont.swift in Sources */,
 				4CF736362476743C00A3DBBF /* AddInstructionsView.swift in Sources */,
 				4C74AF2E2473082700479017 /* Recipe+CoreDataClass.swift in Sources */,
-				4C9AB8572485C27700F00480 /* StarterFormulaViewCell.swift in Sources */,
 				4C8943B3247B884B00D2DB65 /* GlossaryData.swift in Sources */,
 				4C74AF1B2473073E00479017 /* BreadBox.xcdatamodeld in Sources */,
 				4C0D48BE2473B8D700DA5289 /* Scratchpad.swift in Sources */,
@@ -361,6 +364,7 @@
 				4C0D48C92473D3AC00DA5289 /* SettingsView.swift in Sources */,
 				4C8943A22478D13500D2DB65 /* CustomShapes.swift in Sources */,
 				4CF73634247659B600A3DBBF /* CreateView.swift in Sources */,
+				4C0D48CE24749A2B00DA5289 /* StarterFormulaView.swift in Sources */,
 				4CD6958B24781D05009E7E2D /* DetailView.swift in Sources */,
 				4C74AF2F2473082700479017 /* Recipe+CoreDataProperties.swift in Sources */,
 				4C74AF1D2473073E00479017 /* ContentView.swift in Sources */,

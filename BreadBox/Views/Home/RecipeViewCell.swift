@@ -45,10 +45,7 @@ struct RecipeViewCell_Previews: PreviewProvider {
     static var previews: some View {
         let recipe = Recipe(context: moc)
         recipe.name = "Sourdoh!"
-        recipe.flourAmount = "505"
-        recipe.waterAmount = "130"
-        recipe.starterAmount = "125"
-        recipe.saltAmount = "10"
+        recipe.createdDateString = "Jun 1, 2020"
         
         return NavigationView {
             RecipeViewCell(recipe: recipe)
