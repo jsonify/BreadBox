@@ -17,6 +17,10 @@
 		4C0D48CE24749A2B00DA5289 /* StarterFormulaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D48CD24749A2B00DA5289 /* StarterFormulaView.swift */; };
 		4C0D48D02474DB4600DA5289 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D48CF2474DB4600DA5289 /* ImagePicker.swift */; };
 		4C0D48D42475000A00DA5289 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C0D48D32475000A00DA5289 /* Colors.xcassets */; };
+		4C4836A7248308B20048D287 /* Starter+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4836A5248308B20048D287 /* Starter+CoreDataClass.swift */; };
+		4C4836A8248308B20048D287 /* Starter+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4836A6248308B20048D287 /* Starter+CoreDataProperties.swift */; };
+		4C4A1D13248358F60068990C /* StarterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4A1D12248358F60068990C /* StarterDetailView.swift */; };
+		4C4A1D1524835AE00068990C /* StarterCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4A1D1424835AE00068990C /* StarterCreateView.swift */; };
 		4C74AF162473073E00479017 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C74AF152473073E00479017 /* AppDelegate.swift */; };
 		4C74AF182473073E00479017 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C74AF172473073E00479017 /* SceneDelegate.swift */; };
 		4C74AF1B2473073E00479017 /* BreadBox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C74AF192473073E00479017 /* BreadBox.xcdatamodeld */; };
@@ -54,6 +58,10 @@
 		4C0D48CD24749A2B00DA5289 /* StarterFormulaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterFormulaView.swift; sourceTree = "<group>"; };
 		4C0D48CF2474DB4600DA5289 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		4C0D48D32475000A00DA5289 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		4C4836A5248308B20048D287 /* Starter+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Starter+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4C4836A6248308B20048D287 /* Starter+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Starter+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4C4A1D12248358F60068990C /* StarterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterDetailView.swift; sourceTree = "<group>"; };
+		4C4A1D1424835AE00068990C /* StarterCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterCreateView.swift; sourceTree = "<group>"; };
 		4C74AF122473073E00479017 /* BreadBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreadBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C74AF152473073E00479017 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C74AF172473073E00479017 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +103,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C4A1D11248358DB0068990C /* Starters */ = {
+			isa = PBXGroup;
+			children = (
+				4C4A1D12248358F60068990C /* StarterDetailView.swift */,
+				4C4A1D1424835AE00068990C /* StarterCreateView.swift */,
+			);
+			path = Starters;
+			sourceTree = "<group>";
+		};
 		4C74AF092473073E00479017 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				4C74AF3824738A1F00479017 /* Views */,
+				4C8943AD247B802800D2DB65 /* Model */,
 				4C74AF312473096C00479017 /* Helpers */,
 				4C74AF302473091C00479017 /* CoreData */,
 				4C74AF152473073E00479017 /* AppDelegate.swift */,
@@ -140,6 +158,8 @@
 		4C74AF302473091C00479017 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				4C4836A5248308B20048D287 /* Starter+CoreDataClass.swift */,
+				4C4836A6248308B20048D287 /* Starter+CoreDataProperties.swift */,
 				4C74AF2C2473082700479017 /* Recipe+CoreDataClass.swift */,
 				4C74AF2D2473082700479017 /* Recipe+CoreDataProperties.swift */,
 				4C74AF192473073E00479017 /* BreadBox.xcdatamodeld */,
@@ -166,7 +186,7 @@
 		4C74AF3824738A1F00479017 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4C8943AD247B802800D2DB65 /* Model */,
+				4C4A1D11248358DB0068990C /* Starters */,
 				4CD695892477B41D009E7E2D /* unused */,
 				4C74AF3924738A2D00479017 /* Home */,
 				4C74AF3A24738A3C00479017 /* Recipes */,
@@ -321,7 +341,10 @@
 				4C8943A62479000400D2DB65 /* Haptic.swift in Sources */,
 				4C8943AC247A053900D2DB65 /* ReferenceView.swift in Sources */,
 				4C8943AA2479174200D2DB65 /* BlurBackground.swift in Sources */,
+				4C4A1D1524835AE00068990C /* StarterCreateView.swift in Sources */,
+				4C4836A7248308B20048D287 /* Starter+CoreDataClass.swift in Sources */,
 				4C0D48CB2474760F00DA5289 /* InstructionsView.swift in Sources */,
+				4C4A1D13248358F60068990C /* StarterDetailView.swift in Sources */,
 				4C8943A02478534900D2DB65 /* Ingredient.swift in Sources */,
 				4C8943B5247B9BCC00D2DB65 /* StoreKitHelper.swift in Sources */,
 				4C0D48C02473B90400DA5289 /* CustomTextField.swift in Sources */,
@@ -344,6 +367,7 @@
 				4C0D48C22473B91E00DA5289 /* TextView.swift in Sources */,
 				4C8943AF247B805A00D2DB65 /* GlossaryTermModel.swift in Sources */,
 				4C74AF35247309FD00479017 /* Home.swift in Sources */,
+				4C4836A8248308B20048D287 /* Starter+CoreDataProperties.swift in Sources */,
 				4C74AF182473073E00479017 /* SceneDelegate.swift in Sources */,
 				4C8943A42478FD2100D2DB65 /* BottomBar.swift in Sources */,
 				4C0D48C72473CF1C00DA5289 /* RecipeViewCell.swift in Sources */,

@@ -19,8 +19,6 @@ struct Home: View {
     @State private var showingStarterFormulaView = false
     @State private var showReferenceView = false
     
-    //
-    
     var body: some View {
         NavigationView {
             
@@ -35,12 +33,12 @@ struct Home: View {
                         Spacer()
                         
                         
-                            Image("icon-book")
-                        .resizable()
-                        .scaledToFit()
-                                .frame(width: 25, height: 25)
-                                .foregroundColor(Color("Crust"))
-                        .onTapGesture {
+                        Image("icon-book")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 25, height: 25)
+                            .foregroundColor(Color("Crust"))
+                            .onTapGesture {
                                 self.showReferenceView.toggle()
                                 Haptic().simpleSuccess()
                         }
@@ -94,15 +92,13 @@ struct Home: View {
                         Spacer()
                         Image("icon-test-tube")
                             .foregroundColor(Color("buttonGray"))
-                            //                            .onTapGesture {
-                            //                                self.showingStarterFormulaView.toggle()
-                            //                                NavigationLink(destination: StarterFormulaView()) {
-                            //                                    Text("Hello")
-                            //                                }
-                            //                        }
-                            .opacity(0)
-                            .sheet(isPresented: $showingStarterFormulaView) {
-                                StarterFormulaView().environment(\.managedObjectContext, self.moc)
+                            .onTapGesture {
+                                self.showingStarterFormulaView.toggle()
+                                
+                        }
+                        .opacity(1)
+                        .sheet(isPresented: $showingStarterFormulaView) {
+                            StarterFormulaView().environment(\.managedObjectContext, self.moc)
                         }
                     }
                     .padding(.bottom, 40)

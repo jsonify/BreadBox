@@ -13,7 +13,6 @@ struct CreateView: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.presentationMode) var presentationMode
     
-    @State private var showInstructions = false
     @State private var recipeName = ""
     @State private var flourAmount = ""
     @State private var waterAmount = ""
