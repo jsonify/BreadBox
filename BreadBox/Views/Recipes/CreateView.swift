@@ -93,6 +93,9 @@ struct CreateView: View {
                     
                     HStack {
                         TextField("", text: $recipeName)
+                            .onReceive(recipeName.publisher.collect()) {
+                                    self.recipeName = String($0.prefix(12))
+                            }
                             .padding(8)
                             .background(RoundedRectangle(cornerRadius: 10)
                                 .foregroundColor(Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1))))

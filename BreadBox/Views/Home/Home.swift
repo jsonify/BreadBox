@@ -91,7 +91,7 @@ struct Home: View {
                         
                         Spacer()
                         Image("icon-test-tube")
-                            .foregroundColor(Color("buttonGray"))
+                            .foregroundColor(Color("Crust"))
                             .onTapGesture {
                                 self.showingStarterFormulaView.toggle()
                                 

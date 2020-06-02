@@ -16,7 +16,6 @@ struct DetailView: View {
     
     var recipe: Recipe
     
-//    @State private var updatedRecipeName: String = ""
     @State private var updatedFlourAmount: String = ""
     @State private var updatedWaterAmount: String = ""
     @State private var updatedStarterAmount: String = ""

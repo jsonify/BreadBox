@@ -11,6 +11,7 @@ import SwiftUI
 struct StarterCreateView: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.presentationMode) var presentationMode
+    @ObservedObject var textBindingManager = TextBindingManager(limit: 5)
     
     @State private var starterName = ""
     @State private var flourAmount = 33.33
@@ -75,6 +76,9 @@ struct StarterCreateView: View {
                 
                 HStack {
                     TextField("", text: $starterName)
+                        .onReceive(starterName.publisher.collect()) {
+                            self.starterName = String($0.prefix(12))
+                    }
                         .padding(8)
                         .background(RoundedRectangle(cornerRadius: 10)
                             .foregroundColor(Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1))))
@@ -89,80 +93,6 @@ struct StarterCreateView: View {
             .padding(.leading, 30)
             
             Spacer()
-            
-            //            VStack {
-            //                HStack {
-            //                    Text("Flour:".uppercased())
-            //                        .font(AvFont.title)
-            //                        .bold()
-            //                        .tracking(0.5)
-            //
-            //                    Spacer()
-            //                }
-            //
-            //                HStack {
-            //                    Text("\(flourAmount)")
-            //                        .frame(width: 120, height: 34)
-            //                        .font(.caption)
-            //
-            //                    synchronizedSlider(from: allBindings, index: 0)
-            //                }
-            //                .padding(.trailing, 30)
-            //
-            //                HStack {
-            //                    Text("Water:".uppercased())
-            //                        .font(AvFont.title)
-            //                        .bold()
-            //                        .tracking(0.5)
-            //
-            //                    Spacer()
-            //                }
-            //
-            //                HStack {
-            //                    Text("\(waterAmount)")
-            //                        .frame(width: 120, height: 34)
-            //                        .font(.caption)
-            //
-            //                    synchronizedSlider(from: allBindings, index: 1)
-            //                }
-            //                .padding(.trailing, 30)
-            //
-            //                HStack {
-            //                    Text("Seed:".uppercased())
-            //                        .font(AvFont.title)
-            //                        .bold()
-            //                        .tracking(0.5)
-            //
-            //                    Spacer()
-            //                }
-            //
-            //                HStack {
-            //                    Text("\(seedAmount)")
-            //                        .frame(width: 120, height: 34)
-            //                        .font(.caption)
-            //
-            //                    synchronizedSlider(from: allBindings, index: 2)
-            //                }
-            //                .padding(.trailing, 30)
-            //            }
-            //            .padding(.leading, 30)
-            //
-            //            VStack {
-            //                HStack {
-            //                    Text("Instructions:".uppercased())
-            //                        .font(AvFont.title)
-            //                        .bold()
-            //                        .tracking(0.5)
-            //
-            //                    Spacer()
-            //                }
-            //                TextView(text: $instructions)
-            //                    .frame(maxWidth: .infinity)
-            //                    .frame(height: 400)
-            //                    .cornerRadius(10)
-            //                    .foregroundColor(Color("textField"))
-            //            }
-            //            .padding(.horizontal, 30)
         }
         .padding(.top, 60)
     }
@@ -207,9 +137,14 @@ struct StarterCreateView: View {
     }
     
     fileprivate func populateCoreData() {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, yyyy"
+        let dateString = dateFormatter.string(from: date as Date)
         
         let starter = Starter(context: self.moc)
         starter.name = self.starterName
+        starter.createdDateString = dateString
         
         do {
             try self.moc.save()

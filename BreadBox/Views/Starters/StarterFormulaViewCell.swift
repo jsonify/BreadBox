@@ -24,10 +24,11 @@ struct StarterFormulaViewCell: View {
                     Spacer()
                 }
                 
-//                Text("\(self.recipe.createdDateString)".uppercased())
-//                    .kerning(2)
-//                    .foregroundColor(Color("Crust"))
-//                    .scaledFont(name: "Avenir", size: 10)
+            Text(self.starter.updatedDateString.isEmpty ? "Created: \(self.starter.createdDateString)".uppercased() : "Updated: \(self.starter.updatedDateString)".uppercased())
+                    .kerning(2)
+                    .foregroundColor(Color("Crumb"))
+                    .scaledFont(name: "Avenir", size: 10)
+                    
             }
             .padding(20)
             .frame(maxWidth:.infinity)
@@ -44,6 +45,7 @@ struct StarterFormulaViewCell_Previews: PreviewProvider {
     static var previews: some View {
         let starter = Starter(context: moc)
         starter.name = "Lucy"
+        starter.updatedDateString = "Jun 1, 2020"
         
         return StarterFormulaViewCell(starter: starter)
     }

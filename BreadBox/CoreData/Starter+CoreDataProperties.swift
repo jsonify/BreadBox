@@ -23,6 +23,8 @@ extension Starter {
     @NSManaged public var seedAmount: Double
     @NSManaged public var id: UUID?
     @NSManaged public var instructions: String
+    @NSManaged public var createdDateString: String
+    @NSManaged public var updatedDateString: String
     
 //    var wrappedName: String {
 //        get {

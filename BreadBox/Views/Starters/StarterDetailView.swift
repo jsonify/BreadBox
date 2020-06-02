@@ -78,19 +78,30 @@ struct StarterDetailView: View {
                         
                         Spacer()
                         
-                        Button(action: {
-                            self.shareButton()
-                        }) {
-                            Image(systemName: "square.and.arrow.up")
-                                .foregroundColor(Color("Crust"))
-                        }
-                        .padding(.trailing, 30)
+                        Text("Reset".uppercased())
+                        .font(AvFont.title)
+                        .bold()
+                        .tracking(0.5)
+                            .padding(.trailing, 30)
+                        
                     }
                     
                     HStack {
-                        Text("\(self.starter.name)")
+                        Text("\(self.starter.name)".uppercased())
+                            .bold()
                 
                         Spacer()
+                        
+                        Button(action: {
+                        //                            self.shareButton()
+                                                    self.updatedFlourAmount = self.starter.flourAmount
+                                                    self.updatedWaterAmount = self.starter.waterAmount
+                                                    self.updatedSeedAmount = self.starter.seedAmount
+                                                }) {
+                                                    Image(systemName: "gobackward")
+                                                        .foregroundColor(Color("Crust"))
+                                                }
+                                                .padding(.trailing, 30)
                         
                     }
                     
@@ -108,7 +119,7 @@ struct StarterDetailView: View {
                     
                     HStack {
                         Text("\(updatedFlourAmount, specifier: "%.0f")%")
-                            .frame(width: 120, height: 34)
+                            .frame(width: 50, height: 34)
                             .font(.caption)
                             .onAppear {
                                 self.updatedFlourAmount = self.starter.flourAmount
@@ -117,6 +128,7 @@ struct StarterDetailView: View {
                         synchronizedSlider(from: allBindings, index: 0)
                     }
                     .padding(.trailing, 30)
+                    .padding(.bottom, 30)
                     
                     HStack {
                         Text("Water:".uppercased())
@@ -129,7 +141,7 @@ struct StarterDetailView: View {
                     
                     HStack {
                         Text("\(updatedWaterAmount, specifier: "%.0f")%")
-                            .frame(width: 120, height: 34)
+                            .frame(width: 50, height: 34)
                             .font(.caption)
                             .onAppear {
                                 self.updatedWaterAmount = self.starter.waterAmount
@@ -138,6 +150,7 @@ struct StarterDetailView: View {
                         synchronizedSlider(from: allBindings, index: 1)
                     }
                     .padding(.trailing, 30)
+                    .padding(.bottom, 30)
                     
                     HStack {
                         Text("Seed:".uppercased())
@@ -150,7 +163,7 @@ struct StarterDetailView: View {
                     
                     HStack {
                         Text("\(updatedSeedAmount, specifier: "%.0f")%")
-                            .frame(width: 120, height: 34)
+                            .frame(width: 50, height: 34)
                             .font(.caption)
                             .onAppear {
                                 self.updatedSeedAmount = self.starter.seedAmount
@@ -159,6 +172,7 @@ struct StarterDetailView: View {
                         synchronizedSlider(from: allBindings, index: 2)
                     }
                     .padding(.trailing, 30)
+                    .padding(.bottom, 30)
                 }
                 .padding(.leading, 30)
                 
@@ -197,6 +211,8 @@ struct StarterDetailView: View {
         }
     }
     
+    
+    
     func shareButton() {
         showingSheet.toggle()
         
@@ -208,10 +224,16 @@ struct StarterDetailView: View {
     }
     
     func updateCoreData() {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, yyyy"
+        let dateString = dateFormatter.string(from: date as Date)
+        
         self.starter.flourAmount = self.updatedFlourAmount
         self.starter.waterAmount = self.updatedWaterAmount
         self.starter.seedAmount = self.updatedSeedAmount
         self.starter.instructions = self.updatedInstructions
+        self.starter.updatedDateString = dateString
         
         do {
             try self.moc.save()
